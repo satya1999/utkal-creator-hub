@@ -153,18 +153,21 @@ const Index = () => {
 
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid gap-8 md:grid-cols-3">
             {[
-              { icon: Video, title: "Influencer Marketing", desc: "We connect you with the right local voices who your customers already trust.", emoji: "🎥" },
-              { icon: Bot, title: "AI Video & Animation", desc: "Professional content without expensive shoots. Stunning videos powered by AI.", emoji: "🤖" },
-              { icon: Camera, title: "Real Shop Videos", desc: "Authentic footage of your business that builds trust instantly with viewers.", emoji: "📸" },
+              { img: influencerImg, title: "Influencer Marketing", desc: "We connect you with the right local voices who your customers already trust.", alt: "Indian influencer creating food content" },
+              { img: aiVideoImg, title: "AI Video & Animation", desc: "Professional content without expensive shoots. Stunning videos powered by AI.", alt: "AI video editing on laptop" },
+              { img: realShopImg, title: "Real Shop Videos", desc: "Authentic footage of your business that builds trust instantly with viewers.", alt: "Videographer filming inside local shop" },
             ].map((item) => (
               <motion.div key={item.title} variants={fadeUp}>
-                <Card className="group h-full border-none bg-background shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
-                  <CardContent className="p-8">
-                    <span className="mb-5 block text-5xl">{item.emoji}</span>
-                    <h3 className="mb-3 text-xl font-bold text-foreground">{item.title}</h3>
-                    <p className="mb-5 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
+                <Card className="group h-full overflow-hidden border-none bg-background shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <img src={item.img} alt={item.alt} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                  </div>
+                  <CardContent className="p-6">
+                    <h3 className="mb-2 text-xl font-bold text-foreground">{item.title}</h3>
+                    <p className="mb-4 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
                     <Link to="/services" className="inline-flex items-center text-sm font-semibold text-primary transition-colors hover:underline">
                       Learn more <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </Link>
                     </Link>
                   </CardContent>
                 </Card>
