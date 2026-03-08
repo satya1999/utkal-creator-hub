@@ -22,7 +22,7 @@ import AdminCampaigns from "./pages/admin/AdminCampaigns";
 import AdminLeads from "./pages/admin/AdminLeads";
 
 import AdminAnalytics from "./pages/admin/AdminAnalytics";
-
+import AdminCreatorRequests from "./pages/admin/AdminCreatorRequests";
 import AdminSettings from "./pages/admin/AdminSettings";
 
 const queryClient = new QueryClient();
