@@ -1,18 +1,25 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { getWhatsAppLink } from "@/lib/whatsapp";
 import {
-  ArrowRight, ArrowUpRight, ArrowLeft, Check, X as XIcon, Star, ChevronRight,
+  ArrowRight, Check, X as XIcon, Star, ChevronRight,
 } from "lucide-react";
 import { caseStudies } from "@/data/case-studies";
 import ServiceCarousel from "@/components/ServiceCarousel";
 import ShowreelCarousel from "@/components/ShowreelCarousel";
 import heroBusiness from "@/assets/hero-business.jpg";
-import influencerImg from "@/assets/influencer-marketing.jpg";
-import aiVideoImg from "@/assets/ai-video.jpg";
-import realShopImg from "@/assets/real-shop-video.jpg";
+
+// 3D Icons
+import iconCall3d from "@/assets/icon-call-3d.png";
+import iconStrategy3d from "@/assets/icon-strategy-3d.png";
+import iconGrowth3d from "@/assets/icon-growth-3d.png";
+import iconTarget3d from "@/assets/icon-target-3d.png";
+import iconVideo3d from "@/assets/icon-video-3d.png";
+import iconHandshake3d from "@/assets/icon-handshake-3d.png";
+import iconAnalytics3d from "@/assets/icon-analytics-3d.png";
+import iconTrust3d from "@/assets/icon-trust-3d.png";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -23,6 +30,60 @@ const stagger = { visible: { transition: { staggerChildren: 0.1 } } };
 const brands = [
   "Restaurants", "Cloud Kitchens", "Healthcare Clinics", "Travel Agencies",
   "Retail Shops", "Salons & Spas", "Gyms & Fitness", "Hotels",
+];
+
+const features = [
+  {
+    icon: iconTarget3d,
+    title: "Hyper-Local Targeting",
+    desc: "Reach customers within your city — not random followers across the country.",
+  },
+  {
+    icon: iconVideo3d,
+    title: "AI-Powered Content",
+    desc: "Professional videos and reels created using cutting-edge AI at a fraction of the cost.",
+  },
+  {
+    icon: iconHandshake3d,
+    title: "Vetted Creator Network",
+    desc: "100+ trusted local influencers handpicked for authenticity and engagement.",
+  },
+  {
+    icon: iconAnalytics3d,
+    title: "Real-Time Analytics",
+    desc: "Track every view, click, and visit with transparent performance dashboards.",
+  },
+  {
+    icon: iconTrust3d,
+    title: "Guaranteed Results",
+    desc: "We don't just promise growth — we back it with measurable KPIs and reports.",
+  },
+  {
+    icon: iconGrowth3d,
+    title: "Rapid Turnaround",
+    desc: "From strategy to live content in days, not weeks. Move fast, grow faster.",
+  },
+];
+
+const howItWorks = [
+  {
+    icon: iconCall3d,
+    step: "01",
+    title: "Book a Free Discovery Call",
+    desc: "Share your business goals in a 30-minute call. We'll analyze your market, competition, and identify growth opportunities — completely free.",
+  },
+  {
+    icon: iconStrategy3d,
+    step: "02",
+    title: "Get Your Custom Growth Plan",
+    desc: "We design a tailored influencer and content strategy matched to your industry, audience, and budget. No cookie-cutter packages.",
+  },
+  {
+    icon: iconGrowth3d,
+    step: "03",
+    title: "Watch Customers Walk In",
+    desc: "Our creators publish, your phone rings. Track real footfall increases, new followers, and revenue growth with our reporting dashboard.",
+  },
 ];
 
 const Index = () => {
@@ -60,7 +121,7 @@ const Index = () => {
               </motion.h1>
 
               <motion.p variants={fadeUp} className="mb-10 max-w-md text-lg leading-relaxed text-muted-foreground">
-                We connect Balasore businesses with the right influencers, AI-powered video, and authentic content that drives real footfall.
+                Balasore's #1 influencer marketing agency. We pair your business with trusted local creators, AI-powered video, and authentic content that drives <strong className="text-foreground">real footfall and revenue</strong>.
               </motion.p>
 
               <motion.div variants={fadeUp} className="flex flex-col gap-4 sm:flex-row">
@@ -76,9 +137,9 @@ const Index = () => {
 
               <motion.div variants={fadeUp} className="mt-12 flex items-center gap-8">
                 {[
-                  { val: "50+", label: "Businesses" },
-                  { val: "100+", label: "Creators" },
-                  { val: "4+", label: "Industries" },
+                  { val: "50+", label: "Businesses Served" },
+                  { val: "100+", label: "Active Creators" },
+                  { val: "2M+", label: "People Reached" },
                 ].map((s) => (
                   <div key={s.label}>
                     <p className="text-2xl font-black text-foreground">{s.val}</p>
@@ -131,22 +192,116 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Services — Kyra-style */}
+      {/* Why Choose Us — 3D Icons Grid */}
+      <section className="px-4 py-24 md:py-32">
+        <div className="container mx-auto max-w-6xl">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="mb-16 text-center">
+            <motion.p variants={fadeUp} className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+              Why choose us
+            </motion.p>
+            <motion.h2 variants={fadeUp} className="mb-4 text-4xl font-black text-foreground md:text-5xl">
+              Built for <span className="text-gradient">local businesses</span>
+            </motion.h2>
+            <motion.p variants={fadeUp} className="mx-auto max-w-xl text-muted-foreground">
+              Everything a growing business needs to dominate their local market — without the big-agency price tag.
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={stagger}
+            className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          >
+            {features.map((f) => (
+              <motion.div
+                key={f.title}
+                variants={fadeUp}
+                className="group rounded-2xl border border-border bg-card p-7 transition-all duration-300 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5"
+              >
+                <motion.img
+                  src={f.icon}
+                  alt=""
+                  className="mb-5 h-16 w-16 object-contain"
+                  whileHover={{ scale: 1.15, rotate: 5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                />
+                <h3 className="mb-2 text-lg font-bold text-foreground">{f.title}</h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">{f.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Services Carousel */}
       <ServiceCarousel />
 
       {/* Showreel */}
       <ShowreelCarousel />
 
-      {/* Comparison Table */}
+      {/* How It Works — 3D Icons */}
       <section className="border-y border-border bg-muted/30 px-4 py-24 md:py-32">
+        <div className="container mx-auto max-w-5xl">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="mb-16 text-center">
+            <motion.p variants={fadeUp} className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+              Simple Process
+            </motion.p>
+            <motion.h2 variants={fadeUp} className="mb-4 text-4xl font-black text-foreground md:text-5xl">
+              Three steps to <span className="text-gradient">more customers</span>
+            </motion.h2>
+            <motion.p variants={fadeUp} className="mx-auto max-w-lg text-muted-foreground">
+              No long contracts, no confusing jargon. Just a clear path from strategy to results.
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={stagger}
+            className="grid gap-8 md:grid-cols-3"
+          >
+            {howItWorks.map((item, i) => (
+              <motion.div
+                key={item.step}
+                variants={fadeUp}
+                className="relative text-center"
+              >
+                {/* Connector line */}
+                {i < howItWorks.length - 1 && (
+                  <div className="absolute right-0 top-16 hidden h-0.5 w-8 translate-x-full bg-border md:block" />
+                )}
+                <div className="mx-auto mb-6 flex h-28 w-28 items-center justify-center rounded-3xl bg-accent">
+                  <motion.img
+                    src={item.icon}
+                    alt=""
+                    className="h-20 w-20 object-contain"
+                    whileHover={{ y: -8 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  />
+                </div>
+                <span className="mb-2 block text-xs font-bold uppercase tracking-widest text-primary">
+                  Step {item.step}
+                </span>
+                <h3 className="mb-3 text-xl font-bold text-foreground">{item.title}</h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Comparison Table */}
+      <section className="px-4 py-24 md:py-32">
         <div className="container mx-auto max-w-4xl">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="mb-16 text-center">
             <motion.p variants={fadeUp} className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-              Why us
+              The difference
             </motion.p>
             <motion.h2 variants={fadeUp} className="text-4xl font-black text-foreground md:text-5xl">
-              Traditional Marketing vs<br />
-              <span className="text-gradient">Utkal Creator Hub</span>
+              Old way vs <span className="text-gradient">Our way</span>
             </motion.h2>
           </motion.div>
 
@@ -156,19 +311,19 @@ const Index = () => {
                 <thead>
                   <tr className="border-b border-border bg-card">
                     <th className="p-5 text-left text-sm font-medium text-muted-foreground">Feature</th>
-                    <th className="p-5 text-center text-sm font-medium text-muted-foreground">Traditional</th>
+                    <th className="p-5 text-center text-sm font-medium text-muted-foreground">Traditional Ads</th>
                     <th className="p-5 text-center text-sm font-bold text-primary">Utkal Creator Hub</th>
                   </tr>
                 </thead>
                 <tbody>
                   {[
-                    ["Reach local audience", false, true],
-                    ["Affordable pricing", false, true],
-                    ["Data-driven strategy", false, true],
-                    ["AI-powered content", false, true],
+                    ["Reaches your local audience", false, true],
+                    ["Budget-friendly (from ₹5K)", false, true],
+                    ["Data-driven decisions", false, true],
+                    ["AI-powered video content", false, true],
                     ["Real influencer network", false, true],
-                    ["Measurable ROI", false, true],
-                    ["Quick turnaround", false, true],
+                    ["Measurable ROI & reports", false, true],
+                    ["Live in days, not weeks", false, true],
                   ].map(([feature, trad, uch], i) => (
                     <tr key={i} className="border-b border-border last:border-0 transition-colors hover:bg-muted/50">
                       <td className="p-5 text-sm font-medium text-foreground">{feature as string}</td>
@@ -196,15 +351,15 @@ const Index = () => {
       </section>
 
       {/* Case Studies */}
-      <section className="px-4 py-24 md:py-32">
+      <section className="border-t border-border bg-muted/30 px-4 py-24 md:py-32">
         <div className="container mx-auto max-w-6xl">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="mb-16 flex items-end justify-between">
             <div>
               <motion.p variants={fadeUp} className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-                Results
+                Case Studies
               </motion.p>
               <motion.h2 variants={fadeUp} className="text-4xl font-black text-foreground md:text-5xl">
-                Proven Results
+                Real businesses, <span className="text-gradient">real growth</span>
               </motion.h2>
             </div>
             <motion.div variants={fadeUp} className="hidden sm:block">
@@ -234,40 +389,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* How It Works */}
-      <section className="border-y border-border bg-muted/30 px-4 py-24 md:py-32">
-        <div className="container mx-auto max-w-4xl">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="mb-16 text-center">
-            <motion.p variants={fadeUp} className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-              Process
-            </motion.p>
-            <motion.h2 variants={fadeUp} className="text-4xl font-black text-foreground md:text-5xl">
-              How it works
-            </motion.h2>
-          </motion.div>
-
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="space-y-0">
-            {[
-              { step: "01", title: "Book a Free Call", desc: "Tell us about your business and goals in a quick 30-minute discovery call." },
-              { step: "02", title: "We Craft Your Strategy", desc: "We create a custom content and influencer plan tailored to your industry and budget." },
-              { step: "03", title: "Watch Your Business Grow", desc: "Sit back as new customers find you through powerful, authentic content." },
-            ].map((item, i) => (
-              <motion.div
-                key={item.step}
-                variants={fadeUp}
-                className="flex items-start gap-8 border-l-2 border-border py-10 pl-8 last:border-primary"
-              >
-                <span className="text-4xl font-black text-muted-foreground/30">{item.step}</span>
-                <div>
-                  <h3 className="mb-2 text-xl font-bold text-foreground">{item.title}</h3>
-                  <p className="max-w-md text-muted-foreground">{item.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
       {/* Testimonials */}
       <section className="px-4 py-24 md:py-32">
         <div className="container mx-auto max-w-5xl">
@@ -276,7 +397,7 @@ const Index = () => {
               Testimonials
             </motion.p>
             <motion.h2 variants={fadeUp} className="text-4xl font-black text-foreground md:text-5xl">
-              What clients say
+              Loved by <span className="text-gradient">local businesses</span>
             </motion.h2>
           </motion.div>
 
@@ -293,7 +414,7 @@ const Index = () => {
                     </div>
                     <p className="mb-6 text-base leading-relaxed text-foreground">"{cs.quote}"</p>
                     <div className="flex items-center gap-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-lg">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-lg">
                         {cs.icon}
                       </div>
                       <div>
@@ -319,7 +440,7 @@ const Index = () => {
               <span className="text-gradient">customers?</span>
             </motion.h2>
             <motion.p variants={fadeUp} className="mx-auto mb-10 max-w-xl text-lg text-muted-foreground">
-              Book your free 30-minute strategy call today. No commitment, just actionable advice for your business.
+              Join 50+ Balasore businesses already growing with creator-powered marketing. Book your free strategy call today.
             </motion.p>
             <motion.div variants={fadeUp}>
               <Button asChild size="lg" className="h-14 rounded-full px-10 text-base font-bold shadow-lg shadow-primary/20">
