@@ -59,7 +59,7 @@ const Contact = () => {
             <motion.div variants={fadeUp} className="space-y-4">
               {[
                 { icon: Phone, title: "Call Us", detail: PHONE_DISPLAY, href: `tel:${PHONE_DISPLAY.replace(/\s/g, "")}` },
-                { icon: MapPin, title: "Location", detail: "Balasore, Odisha, India" },
+                { icon: MapPin, title: "Location", detail: "Balasore, Odisha — Serving all 30 districts" },
                 { icon: Clock, title: "Business Hours", detail: "Mon – Sat: 10:00 AM – 7:00 PM IST", sub: "WhatsApp replies within 2 hours" },
               ].map((item) => (
                 <div
