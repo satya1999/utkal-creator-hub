@@ -168,7 +168,6 @@ const Index = () => {
                     <Link to="/services" className="inline-flex items-center text-sm font-semibold text-primary transition-colors hover:underline">
                       Learn more <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Link>
-                    </Link>
                   </CardContent>
                 </Card>
               </motion.div>
