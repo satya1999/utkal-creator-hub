@@ -150,32 +150,12 @@ const Index = () => {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
               className="hidden lg:block"
             >
-              <div className="relative">
-                <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-primary/20 via-transparent to-primary/10 blur-2xl" />
-                <img
-                  src={heroBusiness}
-                  alt="Local business owner in Balasore"
-                  className="relative rounded-3xl border border-border shadow-2xl"
-                />
-                <div className="absolute -bottom-6 -left-6 rounded-2xl border border-border bg-card p-5 shadow-xl">
-                  <p className="text-xs font-medium text-muted-foreground">Avg. Result</p>
-                  <p className="text-2xl font-black text-primary">+40%</p>
-                  <p className="text-xs text-muted-foreground">More Footfall</p>
-                </div>
-                <div className="absolute -right-4 top-8 rounded-2xl border border-border bg-card px-4 py-3 shadow-xl">
-                  <div className="flex gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-3.5 w-3.5 fill-primary text-primary" />
-                    ))}
-                  </div>
-                  <p className="mt-1 text-xs text-muted-foreground">Trusted by 50+ brands</p>
-                </div>
-              </div>
+              <HeroLeadForm />
             </motion.div>
           </div>
         </div>
