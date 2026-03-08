@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { caseStudies } from "@/data/case-studies";
 import ServiceCarousel from "@/components/ServiceCarousel";
+import ShowreelCarousel from "@/components/ShowreelCarousel";
 import heroBusiness from "@/assets/hero-business.jpg";
 import influencerImg from "@/assets/influencer-marketing.jpg";
 import aiVideoImg from "@/assets/ai-video.jpg";
@@ -132,6 +133,9 @@ const Index = () => {
 
       {/* Services — Kyra-style */}
       <ServiceCarousel />
+
+      {/* Showreel */}
+      <ShowreelCarousel />
 
       {/* Comparison Table */}
       <section className="border-y border-border bg-muted/30 px-4 py-24 md:py-32">
