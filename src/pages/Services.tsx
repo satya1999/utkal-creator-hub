@@ -28,7 +28,7 @@ const services = [
       "Performance tracking & reporting by district",
       "Authentic Odia content that builds real trust",
     ],
-    useCases: ["Restaurants & cafés", "Retail shops", "Salons & spas", "Healthcare clinics"],
+    useCases: ["Restaurants in Puri & Cuttack", "Shops in Bhubaneswar", "Salons in Berhampur", "Clinics in Balasore"],
   },
   {
     id: "ai-video",
