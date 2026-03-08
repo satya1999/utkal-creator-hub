@@ -88,13 +88,12 @@ const ServiceCarousel = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: i * 0.1 }}
-            className="w-[85vw] flex-shrink-0 snap-start sm:w-[440px]"
+            className="w-[75vw] flex-shrink-0 snap-start sm:w-[340px]"
           >
             <Link to="/services" className="group block">
-              <div className="relative overflow-hidden rounded-[28px] bg-secondary p-7 pb-0 transition-all duration-500 hover:shadow-xl hover:shadow-primary/5">
-                {/* Title */}
+              <div className="relative overflow-hidden rounded-[24px] bg-secondary p-6 pb-0 transition-all duration-500 hover:shadow-lg hover:shadow-primary/5">
                 <h3
-                  className="mb-6 text-[2rem] font-black italic leading-[1.1] text-foreground md:text-[2.4rem]"
+                  className="mb-5 text-2xl font-black italic leading-[1.1] text-foreground md:text-[1.75rem]"
                   style={{ fontFamily: "'Georgia', 'Times New Roman', serif" }}
                 >
                   {service.title.split("\n").map((line, j) => (
@@ -105,21 +104,18 @@ const ServiceCarousel = () => {
                   ))}
                 </h3>
 
-                {/* Image */}
-                <div className="relative mx-auto overflow-hidden rounded-t-2xl">
+                <div className="relative mx-auto overflow-hidden rounded-t-xl">
                   <img
                     src={service.img}
                     alt={service.alt}
-                    className="aspect-[4/5] w-full rounded-t-2xl object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]"
+                    className="aspect-[4/4] w-full rounded-t-xl object-cover object-center"
                   />
-                  {/* Floating stat badge */}
-                  <div className="absolute bottom-4 right-4 rounded-full bg-primary px-4 py-2 text-xs font-bold text-primary-foreground shadow-lg">
+                  <div className="absolute bottom-3 right-3 rounded-full bg-primary px-3 py-1.5 text-[11px] font-bold text-primary-foreground shadow-md">
                     {i === 0 ? "100+ Creators" : i === 1 ? "AI Powered" : "Real Footage"}
                   </div>
                 </div>
               </div>
-              {/* Description below card */}
-              <p className="mt-5 px-2 text-sm leading-relaxed text-muted-foreground">
+              <p className="mt-4 px-1 text-sm leading-relaxed text-muted-foreground">
                 {service.desc}
               </p>
             </Link>
