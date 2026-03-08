@@ -4,6 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { getWhatsAppLink } from "@/lib/whatsapp";
 import { Video, Bot, Camera, CheckCircle2, ArrowRight } from "lucide-react";
+import influencerImg from "@/assets/influencer-marketing.jpg";
+import aiVideoImg from "@/assets/ai-video.jpg";
+import realShopImg from "@/assets/real-shop-video.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -14,8 +17,8 @@ const stagger = { visible: { transition: { staggerChildren: 0.12 } } };
 const services = [
   {
     id: "influencer",
-    emoji: "🎥",
-    icon: Video,
+    img: influencerImg,
+    imgAlt: "Indian influencer creating food content at a local restaurant",
     title: "Influencer Marketing",
     subtitle: "Connect with the right local voices",
     description:
@@ -31,8 +34,8 @@ const services = [
   },
   {
     id: "ai-video",
-    emoji: "🤖",
-    icon: Bot,
+    img: aiVideoImg,
+    imgAlt: "AI video editing software on laptop for business content",
     title: "AI Video & Animation",
     subtitle: "Professional content without expensive shoots",
     description:
@@ -48,8 +51,8 @@ const services = [
   },
   {
     id: "real-shop",
-    emoji: "📸",
-    icon: Camera,
+    img: realShopImg,
+    imgAlt: "Videographer filming inside a local Indian shop",
     title: "Real Shop & Founder Videos",
     subtitle: "Authentic footage that builds trust instantly",
     description:
@@ -92,15 +95,16 @@ const Services = () => {
         <section key={service.id} className={`px-4 py-20 md:py-28 ${i % 2 === 1 ? "bg-accent/50" : ""}`}>
           <div className="container mx-auto max-w-5xl">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
-              <motion.div variants={fadeUp} className="mb-10">
-                <span className="mb-3 block text-5xl">{service.emoji}</span>
-                <h2 className="mb-2 text-3xl font-extrabold text-foreground md:text-4xl">{service.title}</h2>
-                <p className="text-lg font-medium text-primary">{service.subtitle}</p>
-              </motion.div>
-
-              <motion.p variants={fadeUp} className="mb-10 max-w-3xl text-muted-foreground leading-relaxed">
-                {service.description}
-              </motion.p>
+              <div className="mb-10 grid items-center gap-8 md:grid-cols-2">
+                <motion.div variants={fadeUp}>
+                  <h2 className="mb-2 text-3xl font-extrabold text-foreground md:text-4xl">{service.title}</h2>
+                  <p className="mb-4 text-lg font-medium text-primary">{service.subtitle}</p>
+                  <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+                </motion.div>
+                <motion.div variants={fadeUp} className={i % 2 === 1 ? "md:order-first" : ""}>
+                  <img src={service.img} alt={service.imgAlt} className="rounded-2xl shadow-lg" loading="lazy" />
+                </motion.div>
+              </div>
 
               <div className="grid gap-10 md:grid-cols-2">
                 <motion.div variants={fadeUp}>

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { getWhatsAppLink } from "@/lib/whatsapp";
 import { MapPin, Heart, Target, Award, Users, Briefcase, ArrowRight } from "lucide-react";
+import teamImg from "@/assets/team-about.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -34,23 +35,38 @@ const About = () => {
 
       {/* Story */}
       <section className="px-4 py-20 md:py-28">
-        <div className="container mx-auto max-w-3xl">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
-            <motion.h2 variants={fadeUp} className="mb-8 text-3xl font-extrabold text-foreground">
-              Our <span className="text-primary">Story</span>
-            </motion.h2>
-            <motion.div variants={fadeUp} className="space-y-5 text-muted-foreground leading-relaxed">
-              <p>
-                Utkal Creator Hub was born from a simple observation: amazing local businesses in Balasore and across Odisha were being overlooked because they didn't have a digital presence.
-              </p>
-              <p>
-                While big brands in metros had access to top marketing agencies, our local shops, restaurants, clinics, and travel businesses were left behind — relying solely on word of mouth in an increasingly digital world.
-              </p>
-              <p>
-                We started Utkal Creator Hub to bridge that gap. We combine deep local market knowledge with modern tools — influencer partnerships, AI-powered video, and authentic storytelling — to give every local business the visibility they deserve.
-              </p>
+        <div className="container mx-auto max-w-5xl">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
+              <motion.h2 variants={fadeUp} className="mb-8 text-3xl font-extrabold text-foreground">
+                Our <span className="text-primary">Story</span>
+              </motion.h2>
+              <motion.div variants={fadeUp} className="space-y-5 text-muted-foreground leading-relaxed">
+                <p>
+                  Utkal Creator Hub was born from a simple observation: amazing local businesses in Balasore and across Odisha were being overlooked because they didn't have a digital presence.
+                </p>
+                <p>
+                  While big brands in metros had access to top marketing agencies, our local shops, restaurants, clinics, and travel businesses were left behind — relying solely on word of mouth in an increasingly digital world.
+                </p>
+                <p>
+                  We started Utkal Creator Hub to bridge that gap. We combine deep local market knowledge with modern tools — influencer partnerships, AI-powered video, and authentic storytelling — to give every local business the visibility they deserve.
+                </p>
+              </motion.div>
             </motion.div>
-          </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <img
+                src={teamImg}
+                alt="Utkal Creator Hub team brainstorming creative marketing strategies"
+                className="rounded-2xl shadow-xl"
+                loading="lazy"
+              />
+            </motion.div>
+          </div>
         </div>
       </section>
 
