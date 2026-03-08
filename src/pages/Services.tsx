@@ -51,8 +51,8 @@ const services = [
     img: realShopImg,
     imgAlt: "Videographer filming inside a local shop",
     title: "Real Shop & Founder Videos",
-    subtitle: "Authentic footage that builds trust instantly",
-    description: "We visit your business, capture the energy, the people, and the story — then turn it into compelling content your customers will love.",
+    subtitle: "Authentic Odisha footage that builds trust",
+    description: "We visit your business anywhere in Odisha, capture the energy, the people, and the story — then turn it into compelling content your local customers will love.",
     features: [
       "Behind-the-scenes footage",
       "Day-in-the-life founder stories",
