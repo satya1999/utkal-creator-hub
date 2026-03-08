@@ -131,15 +131,6 @@ const Index = () => {
 
       {/* Services — Kyra-style */}
       <ServiceCarousel />
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
 
       {/* Comparison Table */}
       <section className="border-y border-border bg-muted/30 px-4 py-24 md:py-32">
