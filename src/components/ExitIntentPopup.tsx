@@ -29,7 +29,7 @@ const ExitIntentPopup = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-foreground/50 p-4"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-background/80 backdrop-blur-sm p-4"
           onClick={close}
         >
           <motion.div
@@ -37,17 +37,17 @@ const ExitIntentPopup = () => {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-md rounded-2xl bg-background p-8 shadow-2xl"
+            className="relative w-full max-w-md rounded-2xl border border-border bg-card p-8 shadow-2xl"
           >
             <button onClick={close} className="absolute right-4 top-4 text-muted-foreground hover:text-foreground">
               <X className="h-5 w-5" />
             </button>
-            <h3 className="mb-2 text-2xl font-bold text-foreground">Before you go! 👋</h3>
+            <h3 className="mb-2 text-2xl font-black text-foreground">Before you go! 👋</h3>
             <p className="mb-6 text-muted-foreground">
               Get a <span className="font-semibold text-primary">free 15-minute marketing audit</span> for your
-              business. No strings attached — just actionable advice.
+              business. No strings attached.
             </p>
-            <Button asChild size="lg" className="w-full text-base font-semibold">
+            <Button asChild size="lg" className="w-full rounded-full text-base font-bold">
               <a
                 href={getWhatsAppLink("Hi! I'd like to claim my free 15-minute marketing audit.")}
                 target="_blank"
