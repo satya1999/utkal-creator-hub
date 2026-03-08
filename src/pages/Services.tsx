@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -10,7 +9,7 @@ const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
-const stagger = { visible: { transition: { staggerChildren: 0.15 } } };
+const stagger = { visible: { transition: { staggerChildren: 0.12 } } };
 
 const services = [
   {
@@ -74,10 +73,11 @@ const Services = () => {
   return (
     <>
       {/* Hero */}
-      <section className="bg-secondary px-4 py-16 md:py-24">
-        <div className="container mx-auto max-w-4xl text-center">
+      <section className="relative overflow-hidden bg-secondary px-4 py-20 md:py-28">
+        <div className="absolute -right-40 -top-40 h-80 w-80 rounded-full bg-primary/10 blur-3xl" />
+        <div className="container relative mx-auto max-w-4xl text-center">
           <motion.div initial="hidden" animate="visible" variants={stagger}>
-            <motion.h1 variants={fadeUp} className="mb-4 text-4xl font-extrabold text-secondary-foreground md:text-5xl">
+            <motion.h1 variants={fadeUp} className="mb-4 text-4xl font-extrabold text-secondary-foreground md:text-5xl lg:text-6xl">
               Our <span className="text-primary">Services</span>
             </motion.h1>
             <motion.p variants={fadeUp} className="mx-auto max-w-2xl text-lg text-muted-foreground">
@@ -89,25 +89,25 @@ const Services = () => {
 
       {/* Services Detail */}
       {services.map((service, i) => (
-        <section key={service.id} className={`px-4 py-16 md:py-24 ${i % 2 === 1 ? "bg-accent" : ""}`}>
+        <section key={service.id} className={`px-4 py-20 md:py-28 ${i % 2 === 1 ? "bg-accent/50" : ""}`}>
           <div className="container mx-auto max-w-5xl">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
-              <motion.div variants={fadeUp} className="mb-8">
-                <span className="mb-2 block text-5xl">{service.emoji}</span>
-                <h2 className="mb-2 text-3xl font-bold text-foreground">{service.title}</h2>
+              <motion.div variants={fadeUp} className="mb-10">
+                <span className="mb-3 block text-5xl">{service.emoji}</span>
+                <h2 className="mb-2 text-3xl font-extrabold text-foreground md:text-4xl">{service.title}</h2>
                 <p className="text-lg font-medium text-primary">{service.subtitle}</p>
               </motion.div>
 
-              <motion.p variants={fadeUp} className="mb-8 max-w-3xl text-muted-foreground">
+              <motion.p variants={fadeUp} className="mb-10 max-w-3xl text-muted-foreground leading-relaxed">
                 {service.description}
               </motion.p>
 
-              <div className="grid gap-8 md:grid-cols-2">
+              <div className="grid gap-10 md:grid-cols-2">
                 <motion.div variants={fadeUp}>
-                  <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-foreground">What's Included</h3>
+                  <h3 className="mb-5 text-xs font-bold uppercase tracking-widest text-primary">What's Included</h3>
                   <ul className="space-y-3">
                     {service.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <li key={f} className="flex items-start gap-3 text-sm text-muted-foreground">
                         <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                         {f}
                       </li>
@@ -116,10 +116,10 @@ const Services = () => {
                 </motion.div>
 
                 <motion.div variants={fadeUp}>
-                  <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-foreground">Best For</h3>
+                  <h3 className="mb-5 text-xs font-bold uppercase tracking-widest text-primary">Best For</h3>
                   <div className="flex flex-wrap gap-2">
                     {service.useCases.map((u) => (
-                      <span key={u} className="rounded-full bg-primary/10 px-3 py-1.5 text-xs font-medium text-primary">
+                      <span key={u} className="rounded-full border border-primary/20 bg-primary/5 px-4 py-2 text-sm font-medium text-primary">
                         {u}
                       </span>
                     ))}
@@ -132,17 +132,18 @@ const Services = () => {
       ))}
 
       {/* CTA */}
-      <section className="bg-primary px-4 py-16 md:py-24">
-        <div className="container mx-auto max-w-3xl text-center">
+      <section className="relative overflow-hidden bg-primary px-4 py-20 md:py-28">
+        <div className="absolute -left-20 -top-20 h-60 w-60 rounded-full bg-primary-foreground/5 blur-3xl" />
+        <div className="container relative mx-auto max-w-3xl text-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
-            <motion.h2 variants={fadeUp} className="mb-4 text-3xl font-bold text-primary-foreground md:text-4xl">
+            <motion.h2 variants={fadeUp} className="mb-4 text-3xl font-extrabold text-primary-foreground md:text-4xl">
               Packages Start From ₹5,000/month
             </motion.h2>
-            <motion.p variants={fadeUp} className="mx-auto mb-8 max-w-xl text-primary-foreground/80">
+            <motion.p variants={fadeUp} className="mx-auto mb-10 max-w-xl text-primary-foreground/80">
               Every business is different. Book a free call and we'll create a custom plan tailored to your goals and budget.
             </motion.p>
             <motion.div variants={fadeUp}>
-              <Button asChild size="lg" variant="secondary" className="font-bold">
+              <Button asChild size="lg" variant="secondary" className="h-12 px-8 font-bold shadow-xl">
                 <a href={getWhatsAppLink("Hi! I'd like to know more about your service packages.")} target="_blank" rel="noopener noreferrer">
                   Get a Custom Quote <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
