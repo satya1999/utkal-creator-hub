@@ -9,6 +9,11 @@ import {
   MapPin, Heart, Star, Zap, ArrowRight, Phone, ChevronRight,
 } from "lucide-react";
 import { caseStudies } from "@/data/case-studies";
+import heroBusiness from "@/assets/hero-business.jpg";
+import influencerImg from "@/assets/influencer-marketing.jpg";
+import aiVideoImg from "@/assets/ai-video.jpg";
+import realShopImg from "@/assets/real-shop-video.jpg";
+import caseRestaurantImg from "@/assets/case-restaurant.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
