@@ -113,11 +113,11 @@ const Index = () => {
                 variants={fadeUp}
                 className="hero-glow mb-6 text-5xl font-black leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl"
               >
-                Turn Local
+                We <span className="text-gradient glow-text">ଉତ୍କଳ କ୍ରିଏଟର ହବ</span>
                 <br />
-                <span className="text-gradient glow-text">ଉତ୍କଳ କ୍ରିଏଟର ହବ</span> Into
+                Make Your Business
                 <br />
-                Your Customers
+                Go <span className="text-gradient glow-text">Viral</span>
               </motion.h1>
 
               <motion.p variants={fadeUp} className="mb-10 max-w-md text-lg leading-relaxed text-muted-foreground">
