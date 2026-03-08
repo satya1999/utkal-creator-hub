@@ -13,7 +13,7 @@ const stagger = { visible: { transition: { staggerChildren: 0.1 } } };
 
 const CaseStudies = () => {
   useEffect(() => {
-    document.title = "Case Studies — Real Results for Balasore Businesses | Utkal Creator Hub";
+    document.title = "Case Studies — Real Results for Odisha Businesses | Utkal Creator Hub";
   }, []);
 
   return (
