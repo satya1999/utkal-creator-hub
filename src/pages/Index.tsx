@@ -29,8 +29,8 @@ const fadeUp = {
 const stagger = { visible: { transition: { staggerChildren: 0.1 } } };
 
 const brands = [
-  "Restaurants", "Cloud Kitchens", "Healthcare Clinics", "Travel Agencies",
-  "Retail Shops", "Salons & Spas", "Gyms & Fitness", "Hotels",
+  "Bhubaneswar", "Cuttack", "Balasore", "Puri", "Rourkela",
+  "Sambalpur", "Berhampur", "Bhadrak", "Angul", "Jajpur",
 ];
 
 const features = [
