@@ -17,8 +17,8 @@ const stagger = { visible: { transition: { staggerChildren: 0.12 } } };
 const services = [
   {
     id: "influencer",
-    emoji: "🎥",
-    icon: Video,
+    img: influencerImg,
+    imgAlt: "Indian influencer creating food content at a local restaurant",
     title: "Influencer Marketing",
     subtitle: "Connect with the right local voices",
     description:
@@ -34,8 +34,8 @@ const services = [
   },
   {
     id: "ai-video",
-    emoji: "🤖",
-    icon: Bot,
+    img: aiVideoImg,
+    imgAlt: "AI video editing software on laptop for business content",
     title: "AI Video & Animation",
     subtitle: "Professional content without expensive shoots",
     description:
@@ -51,8 +51,8 @@ const services = [
   },
   {
     id: "real-shop",
-    emoji: "📸",
-    icon: Camera,
+    img: realShopImg,
+    imgAlt: "Videographer filming inside a local Indian shop",
     title: "Real Shop & Founder Videos",
     subtitle: "Authentic footage that builds trust instantly",
     description:
