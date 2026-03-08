@@ -119,7 +119,7 @@ const Index = () => {
               </motion.h1>
 
               <motion.p variants={fadeUp} className="mb-10 max-w-md text-lg leading-relaxed text-muted-foreground">
-                Balasore's #1 influencer marketing agency. We pair your business with trusted local creators, AI-powered video, and authentic content that drives <strong className="text-foreground">real footfall and revenue</strong>.
+                Powerful creator content that turns views into <strong className="text-foreground">revenue</strong>.
               </motion.p>
 
               <motion.div variants={fadeUp} className="flex flex-col gap-4 sm:flex-row">
