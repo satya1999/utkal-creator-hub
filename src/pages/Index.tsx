@@ -29,40 +29,40 @@ const fadeUp = {
 const stagger = { visible: { transition: { staggerChildren: 0.1 } } };
 
 const brands = [
-  "Restaurants", "Cloud Kitchens", "Healthcare Clinics", "Travel Agencies",
-  "Retail Shops", "Salons & Spas", "Gyms & Fitness", "Hotels",
+  "Bhubaneswar", "Cuttack", "Balasore", "Puri", "Rourkela",
+  "Sambalpur", "Berhampur", "Bhadrak", "Angul", "Jajpur",
 ];
 
 const features = [
   {
     icon: iconTarget3d,
     title: "Hyper-Local Targeting",
-    desc: "Reach customers within your city — not random followers across the country.",
+    desc: "Reach customers in Bhubaneswar, Cuttack, Puri, Balasore, or any Odisha district — not random followers across India.",
   },
   {
     icon: iconVideo3d,
     title: "AI-Powered Content",
-    desc: "Professional videos and reels created using cutting-edge AI at a fraction of the cost.",
+    desc: "Professional videos and reels for Odisha businesses — created using cutting-edge AI at a fraction of the cost.",
   },
   {
     icon: iconHandshake3d,
     title: "Vetted Creator Network",
-    desc: "100+ trusted local influencers handpicked for authenticity and engagement.",
+    desc: "100+ trusted Odisha influencers across 30 districts — handpicked for authenticity and local engagement.",
   },
   {
     icon: iconAnalytics3d,
     title: "Real-Time Analytics",
-    desc: "Track every view, click, and visit with transparent performance dashboards.",
+    desc: "Track every view, click, and visit with transparent performance dashboards tailored for Odisha markets.",
   },
   {
     icon: iconTrust3d,
     title: "Guaranteed Results",
-    desc: "We don't just promise growth — we back it with measurable KPIs and reports.",
+    desc: "We don't just promise growth — we back it with measurable KPIs for businesses across Odisha.",
   },
   {
     icon: iconGrowth3d,
     title: "Rapid Turnaround",
-    desc: "From strategy to live content in days, not weeks. Move fast, grow faster.",
+    desc: "From strategy to live content in days. Serving businesses from Balasore to Berhampur and everywhere in between.",
   },
 ];
 
@@ -71,19 +71,19 @@ const howItWorks = [
     icon: iconCall3d,
     step: "01",
     title: "Book a Free Discovery Call",
-    desc: "Share your business goals in a 30-minute call. We'll analyze your market, competition, and identify growth opportunities — completely free.",
+    desc: "Share your business goals in a 30-minute call. Whether you're in Bhubaneswar, Puri, or Balasore — we'll analyze your local market and competition for free.",
   },
   {
     icon: iconStrategy3d,
     step: "02",
     title: "Get Your Custom Growth Plan",
-    desc: "We design a tailored influencer and content strategy matched to your industry, audience, and budget. No cookie-cutter packages.",
+    desc: "We design a tailored influencer and content strategy matched to your Odisha district, audience demographics, and budget. No cookie-cutter packages.",
   },
   {
     icon: iconGrowth3d,
     step: "03",
     title: "Watch Customers Walk In",
-    desc: "Our creators publish, your phone rings. Track real footfall increases, new followers, and revenue growth with our reporting dashboard.",
+    desc: "Our Odisha creators publish, your phone rings. Track real footfall increases, new followers, and revenue growth across your district.",
   },
 ];
 

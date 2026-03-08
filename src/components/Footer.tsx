@@ -16,7 +16,7 @@ const Footer = () => (
             </span>
           </Link>
           <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-            Putting local Odisha businesses on the digital map through creator-driven marketing.
+            Odisha's leading creator marketing agency — serving businesses across all 30 districts from Balasore to Berhampur.
           </p>
         </div>
 
@@ -59,7 +59,7 @@ const Footer = () => (
             >
               {PHONE_DISPLAY}
             </a>
-            <p className="text-muted-foreground">Balasore, Odisha, India</p>
+            <p className="text-muted-foreground">HQ: Balasore, Odisha | Serving all 30 districts</p>
             <a
               href={getWhatsAppLink()}
               target="_blank"
@@ -76,7 +76,7 @@ const Footer = () => (
         <p className="text-xs text-muted-foreground">
           © {new Date().getFullYear()} Utkal Creator Hub. All rights reserved.
         </p>
-        <p className="text-xs text-muted-foreground">Balasore, Odisha 🇮🇳</p>
+        <p className="text-xs text-muted-foreground">Made with ❤️ in Odisha 🇮🇳</p>
       </div>
     </div>
   </footer>

@@ -12,7 +12,7 @@ const stagger = { visible: { transition: { staggerChildren: 0.1 } } };
 
 const Contact = () => {
   useEffect(() => {
-    document.title = "Contact Us — Book a Free Call | Utkal Creator Hub Balasore";
+    document.title = "Contact Us — Book a Free Call | Utkal Creator Hub, Odisha";
   }, []);
 
   return (
@@ -59,7 +59,7 @@ const Contact = () => {
             <motion.div variants={fadeUp} className="space-y-4">
               {[
                 { icon: Phone, title: "Call Us", detail: PHONE_DISPLAY, href: `tel:${PHONE_DISPLAY.replace(/\s/g, "")}` },
-                { icon: MapPin, title: "Location", detail: "Balasore, Odisha, India" },
+                { icon: MapPin, title: "Location", detail: "Balasore, Odisha — Serving all 30 districts" },
                 { icon: Clock, title: "Business Hours", detail: "Mon – Sat: 10:00 AM – 7:00 PM IST", sub: "WhatsApp replies within 2 hours" },
               ].map((item) => (
                 <div
@@ -90,8 +90,8 @@ const Contact = () => {
             <div className="flex h-64 items-center justify-center rounded-2xl border border-border bg-card">
               <div className="text-center">
                 <MapPin className="mx-auto mb-2 h-8 w-8 text-muted-foreground" />
-                <p className="text-sm font-medium text-muted-foreground">Balasore, Odisha, India</p>
-                <p className="text-xs text-muted-foreground">Google Maps embed coming soon</p>
+                <p className="text-sm font-medium text-muted-foreground">Headquartered in Balasore, Odisha</p>
+                <p className="text-xs text-muted-foreground">Serving businesses across all 30 districts of Odisha</p>
               </div>
             </div>
           </motion.div>

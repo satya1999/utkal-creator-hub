@@ -13,7 +13,7 @@ const stagger = { visible: { transition: { staggerChildren: 0.1 } } };
 
 const CaseStudies = () => {
   useEffect(() => {
-    document.title = "Case Studies — Real Results for Balasore Businesses | Utkal Creator Hub";
+    document.title = "Case Studies — Real Results for Odisha Businesses | Utkal Creator Hub";
   }, []);
 
   return (
@@ -30,7 +30,7 @@ const CaseStudies = () => {
               Real <span className="text-gradient">results</span>
             </motion.h1>
             <motion.p variants={fadeUp} className="mx-auto max-w-xl text-lg text-muted-foreground">
-              Real businesses. Real strategies. Real growth. See how we've helped local businesses thrive.
+              Real Odisha businesses from Balasore to Berhampur. Real strategies. Real growth across districts.
             </motion.p>
           </motion.div>
         </div>
