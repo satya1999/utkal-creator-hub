@@ -16,7 +16,7 @@ const Footer = () => (
             </span>
           </Link>
           <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-            Putting local Odisha businesses on the digital map through creator-driven marketing.
+            Odisha's leading creator marketing agency — serving businesses across all 30 districts from Balasore to Berhampur.
           </p>
         </div>
 
