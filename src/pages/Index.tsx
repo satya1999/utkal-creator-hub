@@ -113,15 +113,13 @@ const Index = () => {
                 variants={fadeUp}
                 className="hero-glow mb-6 text-5xl font-black leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl"
               >
-                We <span className="text-gradient glow-text">ଉତ୍କଳ କ୍ରିଏଟର ହବ</span>
+                We Create Content
                 <br />
-                Make Your Business
-                <br />
-                Go <span className="text-gradient glow-text">Viral</span>
+                That <span className="text-gradient glow-text">Sells</span>
               </motion.h1>
 
               <motion.p variants={fadeUp} className="mb-10 max-w-md text-lg leading-relaxed text-muted-foreground">
-                Balasore's #1 influencer marketing agency. We pair your business with trusted local creators, AI-powered video, and authentic content that drives <strong className="text-foreground">real footfall and revenue</strong>.
+                Powerful creator content that turns views into <strong className="text-foreground">revenue</strong>.
               </motion.p>
 
               <motion.div variants={fadeUp} className="flex flex-col gap-4 sm:flex-row">
