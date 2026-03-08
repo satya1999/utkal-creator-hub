@@ -7,6 +7,7 @@ import {
   ArrowRight, ArrowUpRight, ArrowLeft, Check, X as XIcon, Star, ChevronRight,
 } from "lucide-react";
 import { caseStudies } from "@/data/case-studies";
+import ServiceCarousel from "@/components/ServiceCarousel";
 import heroBusiness from "@/assets/hero-business.jpg";
 import influencerImg from "@/assets/influencer-marketing.jpg";
 import aiVideoImg from "@/assets/ai-video.jpg";
