@@ -19,8 +19,8 @@ const services = [
     img: influencerImg,
     imgAlt: "Indian influencer creating food content",
     title: "Influencer Marketing",
-    subtitle: "Connect with the right local voices",
-    description: "We identify, vet, and partner with influencers who genuinely resonate with your target audience in Balasore and across Odisha.",
+    subtitle: "Connect with the right Odisha voices",
+    description: "We identify, vet, and partner with influencers who genuinely resonate with your target audience across Odisha — from Bhubaneswar and Cuttack to Balasore, Puri, and beyond.",
     features: [
       "Nano & micro-influencer partnerships (1K–50K followers)",
       "Category-specific matching — food, travel, health, lifestyle",
