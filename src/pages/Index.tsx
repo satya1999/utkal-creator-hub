@@ -115,7 +115,7 @@ const Index = () => {
               >
                 Turn Local
                 <br />
-                <span className="text-gradient glow-text">Creators</span> Into
+                <span className="text-gradient glow-text">ଉତ୍କଳ କ୍ରିଏଟର ହବ</span> Into
                 <br />
                 Your Customers
               </motion.h1>
