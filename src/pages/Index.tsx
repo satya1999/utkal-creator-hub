@@ -9,7 +9,7 @@ import {
 import { caseStudies } from "@/data/case-studies";
 import ServiceCarousel from "@/components/ServiceCarousel";
 import ShowreelCarousel from "@/components/ShowreelCarousel";
-import heroBusiness from "@/assets/hero-business.jpg";
+import HeroLeadForm from "@/components/HeroLeadForm";
 
 // 3D Icons
 import iconCall3d from "@/assets/icon-call-3d.png";
