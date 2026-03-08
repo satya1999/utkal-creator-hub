@@ -91,7 +91,7 @@ const ServiceCarousel = () => {
             className="w-[75vw] flex-shrink-0 snap-start sm:w-[340px]"
           >
             <Link to="/services" className="group block">
-              <div className="relative overflow-hidden rounded-[24px] bg-secondary p-6 pb-0 transition-all duration-500 hover:shadow-lg hover:shadow-primary/5">
+              <div className="relative overflow-hidden rounded-[24px] bg-white p-6 pb-0 transition-all duration-500 hover:shadow-lg hover:shadow-primary/5 border border-border/50">
                 <h3
                   className="mb-5 text-2xl font-black italic leading-[1.1] text-foreground md:text-[1.75rem]"
                   style={{ fontFamily: "'Georgia', 'Times New Roman', serif" }}
