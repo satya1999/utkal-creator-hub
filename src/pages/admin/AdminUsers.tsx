@@ -1,9 +1,12 @@
 import { useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { mockUsers, AdminUser, UserStatus, UserRole } from "@/data/admin-mock-data";
 import { Search, MoreHorizontal, UserPlus } from "lucide-react";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
@@ -20,13 +23,46 @@ const roleColor: Record<UserRole, string> = {
   user: "bg-muted text-muted-foreground",
 };
 
+const emptyUser: Omit<AdminUser, "id"> = { name: "", email: "", role: "user", status: "active", joinedAt: new Date().toISOString().split("T")[0] };
+
 const AdminUsers = () => {
-  const [users, setUsers] = useState(mockUsers);
+  const [users, setUsers] = useState<AdminUser[]>(mockUsers);
   const [search, setSearch] = useState("");
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [editingUser, setEditingUser] = useState<AdminUser | null>(null);
+  const [form, setForm] = useState(emptyUser);
 
   const filtered = users.filter(
     (u) => u.name.toLowerCase().includes(search.toLowerCase()) || u.email.toLowerCase().includes(search.toLowerCase())
   );
+
+  const openAdd = () => {
+    setEditingUser(null);
+    setForm(emptyUser);
+    setDialogOpen(true);
+  };
+
+  const openEdit = (user: AdminUser) => {
+    setEditingUser(user);
+    setForm({ name: user.name, email: user.email, role: user.role, status: user.status, joinedAt: user.joinedAt });
+    setDialogOpen(true);
+  };
+
+  const handleSave = () => {
+    if (!form.name.trim() || !form.email.trim()) {
+      toast.error("Name and email are required");
+      return;
+    }
+    if (editingUser) {
+      setUsers(users.map((u) => (u.id === editingUser.id ? { ...u, ...form } : u)));
+      toast.success("User updated successfully");
+    } else {
+      const newUser: AdminUser = { id: `u${Date.now()}`, ...form };
+      setUsers([...users, newUser]);
+      toast.success("User added successfully");
+    }
+    setDialogOpen(false);
+  };
 
   const handleAction = (userId: string, action: string) => {
     if (action === "suspend") {
@@ -48,7 +84,7 @@ const AdminUsers = () => {
           <h2 className="text-2xl font-bold text-foreground">User Management</h2>
           <p className="text-sm text-muted-foreground">{users.length} total users</p>
         </div>
-        <Button size="sm"><UserPlus className="mr-2 h-4 w-4" /> Add User</Button>
+        <Button size="sm" onClick={openAdd}><UserPlus className="mr-2 h-4 w-4" /> Add User</Button>
       </div>
 
       <Card>
@@ -82,7 +118,7 @@ const AdminUsers = () => {
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild><Button variant="ghost" size="icon"><MoreHorizontal className="h-4 w-4" /></Button></DropdownMenuTrigger>
                       <DropdownMenuContent align="end">
-                        <DropdownMenuItem>Edit</DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => openEdit(u)}>Edit</DropdownMenuItem>
                         {u.status === "active" ? (
                           <DropdownMenuItem onClick={() => handleAction(u.id, "suspend")}>Suspend</DropdownMenuItem>
                         ) : (
@@ -98,6 +134,51 @@ const AdminUsers = () => {
           </Table>
         </CardContent>
       </Card>
+
+      <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>{editingUser ? "Edit User" : "Add New User"}</DialogTitle>
+          </DialogHeader>
+          <div className="space-y-4 py-2">
+            <div className="space-y-2">
+              <Label>Name</Label>
+              <Input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Full name" />
+            </div>
+            <div className="space-y-2">
+              <Label>Email</Label>
+              <Input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="email@example.com" />
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label>Role</Label>
+                <Select value={form.role} onValueChange={(v) => setForm({ ...form, role: v as UserRole })}>
+                  <SelectTrigger><SelectValue /></SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="admin">Admin</SelectItem>
+                    <SelectItem value="user">User</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="space-y-2">
+                <Label>Status</Label>
+                <Select value={form.status} onValueChange={(v) => setForm({ ...form, status: v as UserStatus })}>
+                  <SelectTrigger><SelectValue /></SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="active">Active</SelectItem>
+                    <SelectItem value="suspended">Suspended</SelectItem>
+                    <SelectItem value="inactive">Inactive</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+          </div>
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setDialogOpen(false)}>Cancel</Button>
+            <Button onClick={handleSave}>{editingUser ? "Save Changes" : "Add User"}</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
