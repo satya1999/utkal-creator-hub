@@ -60,7 +60,7 @@ const services = [
       "Facility & ambiance tours",
       "Google Business & social media ready",
     ],
-    useCases: ["Restaurants & hotels", "Healthcare clinics", "Gyms & fitness", "Travel agencies"],
+    useCases: ["Hotels in Puri & Gopalpur", "Clinics in Cuttack", "Gyms in Rourkela", "Travel agencies in Odisha"],
   },
 ];
 

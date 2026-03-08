@@ -71,19 +71,19 @@ const howItWorks = [
     icon: iconCall3d,
     step: "01",
     title: "Book a Free Discovery Call",
-    desc: "Share your business goals in a 30-minute call. We'll analyze your market, competition, and identify growth opportunities — completely free.",
+    desc: "Share your business goals in a 30-minute call. Whether you're in Bhubaneswar, Puri, or Balasore — we'll analyze your local market and competition for free.",
   },
   {
     icon: iconStrategy3d,
     step: "02",
     title: "Get Your Custom Growth Plan",
-    desc: "We design a tailored influencer and content strategy matched to your industry, audience, and budget. No cookie-cutter packages.",
+    desc: "We design a tailored influencer and content strategy matched to your Odisha district, audience demographics, and budget. No cookie-cutter packages.",
   },
   {
     icon: iconGrowth3d,
     step: "03",
     title: "Watch Customers Walk In",
-    desc: "Our creators publish, your phone rings. Track real footfall increases, new followers, and revenue growth with our reporting dashboard.",
+    desc: "Our Odisha creators publish, your phone rings. Track real footfall increases, new followers, and revenue growth across your district.",
   },
 ];
 

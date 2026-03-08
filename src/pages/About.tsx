@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { getWhatsAppLink } from "@/lib/whatsapp";
-import { MapPin, Heart, Target, ArrowRight, Briefcase, Users, Award } from "lucide-react";
+import { MapPin, Heart, Target, ArrowRight, Briefcase, Users, Award, Globe } from "lucide-react";
 import teamImg from "@/assets/team-about.jpg";
 
 const fadeUp = {
@@ -11,9 +11,15 @@ const fadeUp = {
 };
 const stagger = { visible: { transition: { staggerChildren: 0.1 } } };
 
+const odishaDistricts = [
+  "Balasore", "Bhubaneswar", "Cuttack", "Puri", "Rourkela",
+  "Sambalpur", "Berhampur", "Bhadrak", "Angul", "Jajpur",
+  "Koraput", "Jharsuguda", "Kendrapara", "Rayagada", "Dhenkanal",
+];
+
 const About = () => {
   useEffect(() => {
-    document.title = "About Us — Utkal Creator Hub | Content Marketing Agency Balasore";
+    document.title = "About Us — Utkal Creator Hub | Odisha's Leading Creator Marketing Agency";
   }, []);
 
   return (
@@ -28,11 +34,11 @@ const About = () => {
               About Us
             </motion.p>
             <motion.h1 variants={fadeUp} className="mb-6 text-5xl font-black text-foreground md:text-6xl lg:text-7xl">
-              We're building Odisha's{" "}
+              Building Odisha's{" "}
               <span className="text-gradient">creator economy</span>
             </motion.h1>
             <motion.p variants={fadeUp} className="mx-auto max-w-xl text-lg text-muted-foreground">
-              Putting local businesses on the map — one powerful piece of content at a time.
+              From Balasore to Berhampur, Puri to Rourkela — putting every Odisha business on the digital map.
             </motion.p>
           </motion.div>
         </div>
@@ -45,17 +51,17 @@ const About = () => {
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
               <motion.p variants={fadeUp} className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-primary">Our Story</motion.p>
               <motion.h2 variants={fadeUp} className="mb-8 text-3xl font-black text-foreground md:text-4xl">
-                Born from a simple observation
+                Born from a simple observation in Odisha
               </motion.h2>
               <motion.div variants={fadeUp} className="space-y-5 text-muted-foreground leading-relaxed">
                 <p>
-                  Amazing local businesses in Balasore and across Odisha were being overlooked because they didn't have a digital presence.
+                  Amazing local businesses across Odisha's 30 districts were being overlooked because they didn't have a digital presence. A brilliant restaurant in Balasore, a talented bridal artist in Berhampur, a modern gym in Rourkela — all invisible online.
                 </p>
                 <p>
-                  While big brands in metros had access to top marketing agencies, local shops, restaurants, clinics, and travel businesses were left behind — relying solely on word of mouth in an increasingly digital world.
+                  While big brands in metros like Mumbai and Delhi had access to top marketing agencies, businesses in Cuttack, Sambalpur, Puri, and Bhadrak were left behind — relying solely on word of mouth in an increasingly digital Odisha.
                 </p>
                 <p>
-                  We started Utkal Creator Hub to bridge that gap. Deep local knowledge meets modern tools — influencer partnerships, AI-powered video, and authentic storytelling.
+                  We started Utkal Creator Hub to bridge that gap across every district. Deep local knowledge of Odia culture and markets meets modern tools — influencer partnerships, AI-powered video, and authentic storytelling that resonates with Odia audiences.
                 </p>
               </motion.div>
             </motion.div>
@@ -66,7 +72,7 @@ const About = () => {
               transition={{ duration: 0.7 }}
             >
               <div className="overflow-hidden rounded-2xl border border-border">
-                <img src={teamImg} alt="Utkal Creator Hub team" className="w-full object-cover" loading="lazy" />
+                <img src={teamImg} alt="Utkal Creator Hub team in Odisha" className="w-full object-cover" loading="lazy" />
               </div>
             </motion.div>
           </div>
@@ -81,10 +87,10 @@ const About = () => {
             className="grid grid-cols-2 gap-8 md:grid-cols-4"
           >
             {[
-              { icon: Briefcase, value: "50+", label: "Businesses Helped" },
-              { icon: Users, value: "100+", label: "Creator Partners" },
-              { icon: Award, value: "4+", label: "Industries Served" },
-              { icon: MapPin, value: "1", label: "Mission: Balasore First" },
+              { icon: Briefcase, value: "50+", label: "Odisha Businesses Helped" },
+              { icon: Users, value: "100+", label: "Odisha Creator Partners" },
+              { icon: Globe, value: "15+", label: "Districts Covered" },
+              { icon: MapPin, value: "30", label: "Target: All 30 Districts" },
             ].map((stat) => (
               <motion.div key={stat.label} variants={fadeUp} className="text-center">
                 <stat.icon className="mx-auto mb-3 h-6 w-6 text-primary" />
@@ -92,6 +98,25 @@ const About = () => {
                 <p className="text-xs text-muted-foreground">{stat.label}</p>
               </motion.div>
             ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Districts We Serve */}
+      <section className="px-4 py-16">
+        <div className="container mx-auto max-w-4xl">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
+            <motion.div variants={fadeUp} className="mb-10 text-center">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-primary">Our Reach</p>
+              <h2 className="text-3xl font-black text-foreground md:text-4xl">Serving businesses across Odisha</h2>
+            </motion.div>
+            <motion.div variants={fadeUp} className="flex flex-wrap justify-center gap-2">
+              {odishaDistricts.map((d) => (
+                <span key={d} className="rounded-full border border-border bg-muted px-4 py-2 text-sm font-medium text-foreground transition-all hover:border-primary/30 hover:bg-primary/5">
+                  📍 {d}
+                </span>
+              ))}
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -106,9 +131,9 @@ const About = () => {
             </motion.div>
             <div className="grid gap-6 md:grid-cols-3">
               {[
-                { icon: MapPin, title: "Local First", desc: "Every Balasore business deserves world-class marketing. Your success is our mission." },
-                { icon: Heart, title: "Authentic Content", desc: "We don't do fake. Every piece of content is rooted in real stories and genuine experiences." },
-                { icon: Target, title: "Results-Driven", desc: "Vanity metrics don't pay bills. We focus on strategies that bring real customers through your door." },
+                { icon: MapPin, title: "Odisha First", desc: "Every business in every Odisha district deserves world-class marketing. From Malkangiri to Mayurbhanj — your success is our mission." },
+                { icon: Heart, title: "Authentic Odia Content", desc: "We don't do fake. Content rooted in real Odia stories, local culture, and genuine experiences that audiences trust." },
+                { icon: Target, title: "Results-Driven", desc: "Vanity metrics don't pay bills. We focus on strategies that bring real customers through your door — in your district." },
               ].map((v) => (
                 <motion.div
                   key={v.title}
@@ -131,11 +156,11 @@ const About = () => {
         <div className="container relative mx-auto max-w-3xl text-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
             <motion.h2 variants={fadeUp} className="mb-6 text-4xl font-black text-foreground md:text-5xl">
-              Let's build something{" "}
-              <span className="text-gradient">great</span> together
+              Let's grow your Odisha{" "}
+              <span className="text-gradient">business</span> together
             </motion.h2>
             <motion.p variants={fadeUp} className="mb-10 text-muted-foreground">
-              Whether you're a restaurant, clinic, or travel agency — we'd love to help your business grow.
+              Whether you're a restaurant in Puri, a clinic in Cuttack, or a salon in Berhampur — we'd love to help you grow.
             </motion.p>
             <motion.div variants={fadeUp}>
               <Button asChild size="lg" className="h-14 rounded-full px-10 text-base font-bold shadow-lg shadow-primary/20">

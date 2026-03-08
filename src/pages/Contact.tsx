@@ -90,8 +90,8 @@ const Contact = () => {
             <div className="flex h-64 items-center justify-center rounded-2xl border border-border bg-card">
               <div className="text-center">
                 <MapPin className="mx-auto mb-2 h-8 w-8 text-muted-foreground" />
-                <p className="text-sm font-medium text-muted-foreground">Balasore, Odisha, India</p>
-                <p className="text-xs text-muted-foreground">Google Maps embed coming soon</p>
+                <p className="text-sm font-medium text-muted-foreground">Headquartered in Balasore, Odisha</p>
+                <p className="text-xs text-muted-foreground">Serving businesses across all 30 districts of Odisha</p>
               </div>
             </div>
           </motion.div>

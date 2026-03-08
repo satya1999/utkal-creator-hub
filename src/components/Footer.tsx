@@ -76,7 +76,7 @@ const Footer = () => (
         <p className="text-xs text-muted-foreground">
           © {new Date().getFullYear()} Utkal Creator Hub. All rights reserved.
         </p>
-        <p className="text-xs text-muted-foreground">Balasore, Odisha 🇮🇳</p>
+        <p className="text-xs text-muted-foreground">Made with ❤️ in Odisha 🇮🇳</p>
       </div>
     </div>
   </footer>
