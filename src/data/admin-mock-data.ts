@@ -3,7 +3,7 @@ export type CreatorTier = "bronze" | "silver" | "gold" | "platinum";
 export type CampaignStatus = "draft" | "active" | "completed" | "paused";
 export type LeadStatus = "new" | "contacted" | "qualified" | "converted" | "lost";
 export type ContentStatus = "pending" | "approved" | "rejected" | "flagged";
-export type UserRole = "admin" | "manager" | "editor" | "viewer";
+export type UserRole = "admin" | "user";
 
 export interface AdminUser {
   id: string;
