@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -16,10 +16,27 @@ const navLinks = [
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location.pathname]);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+    <header
+      className={`sticky top-0 z-50 border-b transition-all duration-300 ${
+        scrolled
+          ? "border-border bg-background/95 shadow-md backdrop-blur supports-[backdrop-filter]:bg-background/80"
+          : "border-transparent bg-background/70 backdrop-blur"
+      }`}
+    >
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link to="/" className="flex items-center gap-2">
           <span className="text-2xl font-extrabold tracking-tight text-primary">
@@ -33,19 +50,26 @@ const Header = () => {
             <Link
               key={link.to}
               to={link.to}
-              className={`rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground ${
+              className={`relative rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-primary ${
                 location.pathname === link.to
-                  ? "bg-accent text-accent-foreground"
+                  ? "text-primary"
                   : "text-muted-foreground"
               }`}
             >
               {link.label}
+              {location.pathname === link.to && (
+                <motion.div
+                  layoutId="nav-underline"
+                  className="absolute -bottom-0.5 left-1 right-1 h-0.5 rounded-full bg-primary"
+                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                />
+              )}
             </Link>
           ))}
         </nav>
 
         <div className="hidden md:block">
-          <Button asChild size="sm" className="font-semibold">
+          <Button asChild size="sm" className="font-semibold shadow-md">
             <a href={getWhatsAppLink()} target="_blank" rel="noopener noreferrer">
               Book Free Call
             </a>
@@ -69,8 +93,8 @@ const Header = () => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="overflow-hidden border-t border-border md:hidden"
+            transition={{ duration: 0.25 }}
+            className="overflow-hidden border-t border-border bg-background md:hidden"
           >
             <nav className="flex flex-col gap-1 p-4">
               {navLinks.map((link) => (
@@ -78,16 +102,16 @@ const Header = () => {
                   key={link.to}
                   to={link.to}
                   onClick={() => setMobileOpen(false)}
-                  className={`rounded-md px-3 py-3 text-sm font-medium transition-colors ${
+                  className={`rounded-lg px-4 py-3 text-sm font-medium transition-colors ${
                     location.pathname === link.to
-                      ? "bg-accent text-accent-foreground"
+                      ? "bg-primary/10 text-primary"
                       : "text-muted-foreground hover:bg-accent"
                   }`}
                 >
                   {link.label}
                 </Link>
               ))}
-              <Button asChild className="mt-2 font-semibold">
+              <Button asChild className="mt-3 font-semibold">
                 <a href={getWhatsAppLink()} target="_blank" rel="noopener noreferrer">
                   Book Free Call
                 </a>
