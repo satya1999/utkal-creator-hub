@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { getWhatsAppLink } from "@/lib/whatsapp";
 import {
-  ArrowRight, ArrowUpRight, Check, X as XIcon, Star, ChevronRight,
+  ArrowRight, ArrowUpRight, ArrowLeft, Check, X as XIcon, Star, ChevronRight,
 } from "lucide-react";
 import { caseStudies } from "@/data/case-studies";
 import heroBusiness from "@/assets/hero-business.jpg";
