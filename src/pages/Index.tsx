@@ -369,6 +369,8 @@ const Index = () => {
           </motion.div>
         </div>
       </section>
+      {/* Creator CTA */}
+      <CreatorCTA />
 
       {/* Testimonials */}
       <section className="px-4 py-24 md:py-32">
