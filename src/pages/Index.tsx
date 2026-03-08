@@ -49,11 +49,11 @@ const Index = () => {
 
               <motion.h1
                 variants={fadeUp}
-                className="mb-6 text-5xl font-black leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl"
+                className="hero-glow mb-6 text-5xl font-black leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl"
               >
                 Turn Local
                 <br />
-                <span className="text-gradient">Creators</span> Into
+                <span className="text-gradient glow-text">Creators</span> Into
                 <br />
                 Your Customers
               </motion.h1>

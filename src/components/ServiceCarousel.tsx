@@ -91,7 +91,7 @@ const ServiceCarousel = () => {
             className="w-[85vw] flex-shrink-0 snap-start sm:w-[420px]"
           >
             <Link to="/services" className="group block">
-              <div className="relative overflow-hidden rounded-3xl bg-[hsl(0,0%,96%)] p-8 pb-0 transition-all duration-500 hover:bg-[hsl(0,0%,92%)]">
+              <div className="relative overflow-hidden rounded-3xl bg-secondary p-8 pb-0 transition-all duration-500 hover:bg-muted">
                 {/* Title */}
                 <h3
                   className="mb-8 text-3xl font-black italic leading-[1.1] text-[hsl(0,0%,10%)] md:text-4xl"
