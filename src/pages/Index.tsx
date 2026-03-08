@@ -113,6 +113,8 @@ const Index = () => {
                 variants={fadeUp}
                 className="hero-glow mb-6 text-5xl font-black leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl"
               >
+                <span className="text-gradient glow-text">ଉତ୍କଳ କ୍ରିଏଟର ହବ</span>
+                <br />
                 We Create Content
                 <br />
                 That <span className="text-gradient glow-text">Sells</span>
