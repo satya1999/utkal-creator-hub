@@ -29,54 +29,73 @@ const Index = () => {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-secondary px-4 py-24 md:py-36">
-        {/* Animated gradient background */}
+      <section className="relative overflow-hidden bg-secondary px-4 py-20 md:py-28">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-transparent to-primary/10" />
         <div className="absolute -left-40 -top-40 h-80 w-80 rounded-full bg-primary/10 blur-3xl" />
         <div className="absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-primary/8 blur-3xl" />
 
-        <div className="container relative mx-auto max-w-5xl text-center">
-          <motion.div initial="hidden" animate="visible" variants={stagger}>
-            <motion.span
-              variants={fadeUp}
-              className="mb-6 inline-block rounded-full border border-primary/20 bg-primary/10 px-5 py-2 text-xs font-semibold uppercase tracking-wider text-primary"
-            >
-              🚀 We only take 5 new clients per month
-            </motion.span>
-            <motion.h1
-              variants={fadeUp}
-              className="mb-6 text-4xl font-extrabold leading-[1.1] tracking-tight text-secondary-foreground sm:text-5xl md:text-6xl lg:text-7xl"
-            >
-              Get More Customers With{" "}
-              <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-                Local Influencer Marketing
-              </span>
-            </motion.h1>
-            <motion.p variants={fadeUp} className="mx-auto mb-10 max-w-2xl text-lg text-muted-foreground md:text-xl">
-              We create powerful content using local influencers, AI videos, and real shop footage — so your business
-              gets seen, trusted, and chosen by customers in Balasore.
-            </motion.p>
-            <motion.div variants={fadeUp} className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-              <Button asChild size="lg" className="h-12 px-8 text-base font-bold shadow-lg shadow-primary/25">
-                <a href={getWhatsAppLink()} target="_blank" rel="noopener noreferrer">
-                  Book Your Free Strategy Call <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="h-12 px-8 text-base font-semibold">
-                <Link to="/case-studies">View Case Studies</Link>
-              </Button>
+        <div className="container relative mx-auto max-w-6xl">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <motion.div initial="hidden" animate="visible" variants={stagger}>
+              <motion.span
+                variants={fadeUp}
+                className="mb-6 inline-block rounded-full border border-primary/20 bg-primary/10 px-5 py-2 text-xs font-semibold uppercase tracking-wider text-primary"
+              >
+                🚀 We only take 5 new clients per month
+              </motion.span>
+              <motion.h1
+                variants={fadeUp}
+                className="mb-6 text-4xl font-extrabold leading-[1.1] tracking-tight text-secondary-foreground sm:text-5xl lg:text-6xl"
+              >
+                Get More Customers With{" "}
+                <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+                  Local Influencer Marketing
+                </span>
+              </motion.h1>
+              <motion.p variants={fadeUp} className="mb-8 max-w-lg text-lg text-muted-foreground">
+                We create powerful content using local influencers, AI videos, and real shop footage — so your business
+                gets seen, trusted, and chosen by customers in Balasore.
+              </motion.p>
+              <motion.div variants={fadeUp} className="flex flex-col gap-4 sm:flex-row">
+                <Button asChild size="lg" className="h-12 px-8 text-base font-bold shadow-lg shadow-primary/25">
+                  <a href={getWhatsAppLink()} target="_blank" rel="noopener noreferrer">
+                    Book Your Free Strategy Call <ArrowRight className="ml-2 h-4 w-4" />
+                  </a>
+                </Button>
+                <Button asChild variant="outline" size="lg" className="h-12 px-8 text-base font-semibold">
+                  <Link to="/case-studies">View Case Studies</Link>
+                </Button>
+              </motion.div>
+
+              <motion.div variants={fadeUp} className="mt-10 flex flex-wrap items-center gap-6 text-xs text-muted-foreground">
+                {["50+ Businesses Helped", "100+ Influencer Partners", "4+ Industries Served"].map((t) => (
+                  <span key={t} className="flex items-center gap-1.5">
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                    {t}
+                  </span>
+                ))}
+              </motion.div>
             </motion.div>
 
-            {/* Trust strip */}
-            <motion.div variants={fadeUp} className="mt-14 flex flex-wrap items-center justify-center gap-6 text-xs text-muted-foreground">
-              {["50+ Businesses Helped", "100+ Influencer Partners", "4+ Industries Served"].map((t) => (
-                <span key={t} className="flex items-center gap-1.5">
-                  <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                  {t}
-                </span>
-              ))}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, x: 30 }}
+              animate={{ opacity: 1, scale: 1, x: 0 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              className="hidden md:block"
+            >
+              <div className="relative">
+                <img
+                  src={heroBusiness}
+                  alt="Local business owner in Balasore smiling in front of their shop"
+                  className="rounded-2xl shadow-2xl shadow-primary/10"
+                />
+                <div className="absolute -bottom-4 -left-4 rounded-xl bg-background p-4 shadow-lg">
+                  <p className="text-xs font-bold text-primary">40% More Footfall</p>
+                  <p className="text-[10px] text-muted-foreground">Average client result</p>
+                </div>
+              </div>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
