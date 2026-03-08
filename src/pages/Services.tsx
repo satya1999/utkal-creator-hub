@@ -36,7 +36,7 @@ const services = [
     imgAlt: "AI video editing software on laptop",
     title: "AI Video & Animation",
     subtitle: "Professional content without expensive shoots",
-    description: "Leverage cutting-edge AI tools to create stunning promotional videos, product showcases, and animated explainers at a fraction of traditional costs.",
+    description: "Leverage cutting-edge AI tools to create stunning promotional videos for Odisha businesses — product showcases, animated explainers, and festival promos at a fraction of traditional costs.",
     features: [
       "AI-enhanced promotional reels",
       "Product showcase animations",
