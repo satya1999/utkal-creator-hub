@@ -10,6 +10,7 @@ import { caseStudies } from "@/data/case-studies";
 import ServiceCarousel from "@/components/ServiceCarousel";
 import ShowreelCarousel from "@/components/ShowreelCarousel";
 import HeroLeadForm from "@/components/HeroLeadForm";
+import CreatorCTA from "@/components/CreatorCTA";
 
 // 3D Icons
 import iconCall3d from "@/assets/icon-call-3d.png";
@@ -368,6 +369,8 @@ const Index = () => {
           </motion.div>
         </div>
       </section>
+      {/* Creator CTA */}
+      <CreatorCTA />
 
       {/* Testimonials */}
       <section className="px-4 py-24 md:py-32">
