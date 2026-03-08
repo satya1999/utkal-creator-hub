@@ -1,12 +1,13 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { getWhatsAppLink } from "@/lib/whatsapp";
 import {
-  ArrowRight, ArrowUpRight, Check, X as XIcon, Star, ChevronRight,
+  ArrowRight, ArrowUpRight, ArrowLeft, Check, X as XIcon, Star, ChevronRight,
 } from "lucide-react";
 import { caseStudies } from "@/data/case-studies";
+import ServiceCarousel from "@/components/ServiceCarousel";
 import heroBusiness from "@/assets/hero-business.jpg";
 import influencerImg from "@/assets/influencer-marketing.jpg";
 import aiVideoImg from "@/assets/ai-video.jpg";
@@ -129,44 +130,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Services */}
-      <section className="px-4 py-24 md:py-32">
-        <div className="container mx-auto max-w-6xl">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="mb-16">
-            <motion.p variants={fadeUp} className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-              What we do
-            </motion.p>
-            <motion.h2 variants={fadeUp} className="max-w-2xl text-4xl font-black text-foreground md:text-5xl">
-              Three powerful services to grow your business
-            </motion.h2>
-          </motion.div>
-
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid gap-6 md:grid-cols-3">
-            {[
-              { img: influencerImg, title: "Influencer Marketing", desc: "Connect with local creators who your customers already trust and follow.", alt: "Indian influencer creating content" },
-              { img: aiVideoImg, title: "AI Video & Animation", desc: "Professional-quality content without expensive shoots. Stunning videos powered by AI.", alt: "AI video editing" },
-              { img: realShopImg, title: "Real Shop Videos", desc: "Authentic behind-the-scenes footage that builds instant trust with viewers.", alt: "Videographer in local shop" },
-            ].map((item) => (
-              <motion.div key={item.title} variants={fadeUp}>
-                <Link to="/services" className="group block">
-                  <div className="overflow-hidden rounded-2xl border border-border bg-card transition-all duration-500 hover:border-primary/30 hover:glow">
-                    <div className="aspect-[4/3] overflow-hidden">
-                      <img src={item.img} alt={item.alt} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                    </div>
-                    <div className="p-6">
-                      <h3 className="mb-2 text-lg font-bold text-foreground">{item.title}</h3>
-                      <p className="mb-4 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
-                      <span className="inline-flex items-center text-sm font-semibold text-primary">
-                        Learn more <ArrowUpRight className="ml-1 h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+      {/* Services — Kyra-style */}
+      <ServiceCarousel />
 
       {/* Comparison Table */}
       <section className="border-y border-border bg-muted/30 px-4 py-24 md:py-32">
