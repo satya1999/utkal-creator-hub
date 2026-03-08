@@ -2,24 +2,26 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { getWhatsAppLink } from "@/lib/whatsapp";
 import {
-  Clock, TrendingUp, Users, Video, Bot, Camera,
-  MapPin, Heart, Star, Zap, ArrowRight, Phone, ChevronRight,
+  ArrowRight, ArrowUpRight, Check, X as XIcon, Star, ChevronRight,
 } from "lucide-react";
 import { caseStudies } from "@/data/case-studies";
 import heroBusiness from "@/assets/hero-business.jpg";
 import influencerImg from "@/assets/influencer-marketing.jpg";
 import aiVideoImg from "@/assets/ai-video.jpg";
 import realShopImg from "@/assets/real-shop-video.jpg";
-import caseRestaurantImg from "@/assets/case-restaurant.jpg";
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] as const } },
 };
-const stagger = { visible: { transition: { staggerChildren: 0.12 } } };
+const stagger = { visible: { transition: { staggerChildren: 0.1 } } };
+
+const brands = [
+  "Restaurants", "Cloud Kitchens", "Healthcare Clinics", "Travel Agencies",
+  "Retail Shops", "Salons & Spas", "Gyms & Fitness", "Hotels",
+];
 
 const Index = () => {
   useEffect(() => {
@@ -29,69 +31,86 @@ const Index = () => {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-secondary px-4 py-20 md:py-28">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-transparent to-primary/10" />
-        <div className="absolute -left-40 -top-40 h-80 w-80 rounded-full bg-primary/10 blur-3xl" />
-        <div className="absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-primary/8 blur-3xl" />
+      <section className="relative min-h-[90vh] overflow-hidden px-4 py-24 md:py-32 lg:py-40">
+        <div className="grid-pattern absolute inset-0" />
+        <div className="absolute -left-60 top-20 h-[500px] w-[500px] rounded-full bg-primary/5 blur-[120px]" />
+        <div className="absolute -right-40 bottom-0 h-[400px] w-[400px] rounded-full bg-primary/8 blur-[100px]" />
 
         <div className="container relative mx-auto max-w-6xl">
-          <div className="grid items-center gap-10 md:grid-cols-2">
+          <div className="grid items-center gap-12 lg:grid-cols-2">
             <motion.div initial="hidden" animate="visible" variants={stagger}>
-              <motion.span
-                variants={fadeUp}
-                className="mb-6 inline-block rounded-full border border-primary/20 bg-primary/10 px-5 py-2 text-xs font-semibold uppercase tracking-wider text-primary"
-              >
-                🚀 We only take 5 new clients per month
-              </motion.span>
+              <motion.div variants={fadeUp} className="mb-8">
+                <span className="inline-flex items-center gap-2 rounded-full border border-border bg-muted px-4 py-1.5 text-xs font-medium text-muted-foreground">
+                  <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+                  Only 5 new clients per month
+                </span>
+              </motion.div>
+
               <motion.h1
                 variants={fadeUp}
-                className="mb-6 text-4xl font-extrabold leading-[1.1] tracking-tight text-secondary-foreground sm:text-5xl lg:text-6xl"
+                className="mb-6 text-5xl font-black leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl"
               >
-                Get More Customers With{" "}
-                <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-                  Local Influencer Marketing
-                </span>
+                Turn Local
+                <br />
+                <span className="text-gradient">Creators</span> Into
+                <br />
+                Your Customers
               </motion.h1>
-              <motion.p variants={fadeUp} className="mb-8 max-w-lg text-lg text-muted-foreground">
-                We create powerful content using local influencers, AI videos, and real shop footage — so your business
-                gets seen, trusted, and chosen by customers in Balasore.
+
+              <motion.p variants={fadeUp} className="mb-10 max-w-md text-lg leading-relaxed text-muted-foreground">
+                We connect Balasore businesses with the right influencers, AI-powered video, and authentic content that drives real footfall.
               </motion.p>
+
               <motion.div variants={fadeUp} className="flex flex-col gap-4 sm:flex-row">
-                <Button asChild size="lg" className="h-12 px-8 text-base font-bold shadow-lg shadow-primary/25">
+                <Button asChild size="lg" className="h-13 rounded-full px-8 text-base font-bold">
                   <a href={getWhatsAppLink()} target="_blank" rel="noopener noreferrer">
-                    Book Your Free Strategy Call <ArrowRight className="ml-2 h-4 w-4" />
+                    Book Free Strategy Call <ArrowRight className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="h-12 px-8 text-base font-semibold">
-                  <Link to="/case-studies">View Case Studies</Link>
+                <Button asChild variant="outline" size="lg" className="h-13 rounded-full px-8 text-base font-medium border-border hover:bg-muted">
+                  <Link to="/case-studies">View Results</Link>
                 </Button>
               </motion.div>
 
-              <motion.div variants={fadeUp} className="mt-10 flex flex-wrap items-center gap-6 text-xs text-muted-foreground">
-                {["50+ Businesses Helped", "100+ Influencer Partners", "4+ Industries Served"].map((t) => (
-                  <span key={t} className="flex items-center gap-1.5">
-                    <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                    {t}
-                  </span>
+              <motion.div variants={fadeUp} className="mt-12 flex items-center gap-8">
+                {[
+                  { val: "50+", label: "Businesses" },
+                  { val: "100+", label: "Creators" },
+                  { val: "4+", label: "Industries" },
+                ].map((s) => (
+                  <div key={s.label}>
+                    <p className="text-2xl font-black text-foreground">{s.val}</p>
+                    <p className="text-xs text-muted-foreground">{s.label}</p>
+                  </div>
                 ))}
               </motion.div>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, x: 30 }}
-              animate={{ opacity: 1, scale: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.3 }}
-              className="hidden md:block"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="hidden lg:block"
             >
               <div className="relative">
+                <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-primary/20 via-transparent to-primary/10 blur-2xl" />
                 <img
                   src={heroBusiness}
-                  alt="Local business owner in Balasore smiling in front of their shop"
-                  className="rounded-2xl shadow-2xl shadow-primary/10"
+                  alt="Local business owner in Balasore"
+                  className="relative rounded-3xl border border-border shadow-2xl"
                 />
-                <div className="absolute -bottom-4 -left-4 rounded-xl bg-background p-4 shadow-lg">
-                  <p className="text-xs font-bold text-primary">40% More Footfall</p>
-                  <p className="text-[10px] text-muted-foreground">Average client result</p>
+                <div className="absolute -bottom-6 -left-6 rounded-2xl border border-border bg-card p-5 shadow-xl">
+                  <p className="text-xs font-medium text-muted-foreground">Avg. Result</p>
+                  <p className="text-2xl font-black text-primary">+40%</p>
+                  <p className="text-xs text-muted-foreground">More Footfall</p>
+                </div>
+                <div className="absolute -right-4 top-8 rounded-2xl border border-border bg-card px-4 py-3 shadow-xl">
+                  <div className="flex gap-0.5">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-3.5 w-3.5 fill-primary text-primary" />
+                    ))}
+                  </div>
+                  <p className="mt-1 text-xs text-muted-foreground">Trusted by 50+ brands</p>
                 </div>
               </div>
             </motion.div>
@@ -99,110 +118,49 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Pain Points */}
-      <section className="px-4 py-20 md:py-28">
-        <div className="container mx-auto max-w-5xl">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="text-center">
-            <motion.h2 variants={fadeUp} className="mb-4 text-3xl font-extrabold text-foreground md:text-4xl">
-              Are You Still Relying on <span className="text-primary">Word of Mouth?</span>
-            </motion.h2>
-            <motion.p variants={fadeUp} className="mx-auto mb-14 max-w-xl text-muted-foreground">
-              Most local business owners face these challenges every day.
+      {/* Brand Marquee */}
+      <section className="border-y border-border bg-muted/50 py-5 overflow-hidden">
+        <div className="animate-marquee flex w-max items-center gap-12">
+          {[...brands, ...brands].map((b, i) => (
+            <span key={i} className="whitespace-nowrap text-sm font-medium text-muted-foreground">
+              {b}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      {/* Services */}
+      <section className="px-4 py-24 md:py-32">
+        <div className="container mx-auto max-w-6xl">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="mb-16">
+            <motion.p variants={fadeUp} className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+              What we do
             </motion.p>
+            <motion.h2 variants={fadeUp} className="max-w-2xl text-4xl font-black text-foreground md:text-5xl">
+              Three powerful services to grow your business
+            </motion.h2>
           </motion.div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={stagger}
-            className="grid gap-6 md:grid-cols-3"
-          >
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid gap-6 md:grid-cols-3">
             {[
-              { icon: Clock, title: "No Time to Create Content", desc: "You're busy running your business. Who has time to shoot, edit, and post consistently?" },
-              { icon: TrendingUp, title: "Competitors Are Already Ahead", desc: "Your competitors are on Instagram getting customers while you're still thinking about it." },
-              { icon: Users, title: "Don't Know Who to Trust", desc: "Finding the right influencers who won't waste your money feels impossible." },
+              { img: influencerImg, title: "Influencer Marketing", desc: "Connect with local creators who your customers already trust and follow.", alt: "Indian influencer creating content" },
+              { img: aiVideoImg, title: "AI Video & Animation", desc: "Professional-quality content without expensive shoots. Stunning videos powered by AI.", alt: "AI video editing" },
+              { img: realShopImg, title: "Real Shop Videos", desc: "Authentic behind-the-scenes footage that builds instant trust with viewers.", alt: "Videographer in local shop" },
             ].map((item) => (
               <motion.div key={item.title} variants={fadeUp}>
-                <Card className="group h-full border-2 border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5">
-                  <CardContent className="p-8 text-center">
-                    <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-accent transition-colors group-hover:bg-primary/10">
-                      <item.icon className="h-8 w-8 text-primary" />
+                <Link to="/services" className="group block">
+                  <div className="overflow-hidden rounded-2xl border border-border bg-card transition-all duration-500 hover:border-primary/30 hover:glow">
+                    <div className="aspect-[4/3] overflow-hidden">
+                      <img src={item.img} alt={item.alt} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                     </div>
-                    <h3 className="mb-3 text-lg font-bold text-card-foreground">{item.title}</h3>
-                    <p className="text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Solutions */}
-      <section className="bg-accent/50 px-4 py-20 md:py-28">
-        <div className="container mx-auto max-w-5xl">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="text-center">
-            <motion.h2 variants={fadeUp} className="mb-4 text-3xl font-extrabold text-foreground md:text-4xl">
-              We Do It <span className="text-primary">All For You</span>
-            </motion.h2>
-            <motion.p variants={fadeUp} className="mx-auto mb-14 max-w-xl text-muted-foreground">
-              Three powerful services designed to grow your local business.
-            </motion.p>
-          </motion.div>
-
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid gap-8 md:grid-cols-3">
-            {[
-              { img: influencerImg, title: "Influencer Marketing", desc: "We connect you with the right local voices who your customers already trust.", alt: "Indian influencer creating food content" },
-              { img: aiVideoImg, title: "AI Video & Animation", desc: "Professional content without expensive shoots. Stunning videos powered by AI.", alt: "AI video editing on laptop" },
-              { img: realShopImg, title: "Real Shop Videos", desc: "Authentic footage of your business that builds trust instantly with viewers.", alt: "Videographer filming inside local shop" },
-            ].map((item) => (
-              <motion.div key={item.title} variants={fadeUp}>
-                <Card className="group h-full overflow-hidden border-none bg-background shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
-                  <div className="aspect-[4/3] overflow-hidden">
-                    <img src={item.img} alt={item.alt} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                  </div>
-                  <CardContent className="p-6">
-                    <h3 className="mb-2 text-xl font-bold text-foreground">{item.title}</h3>
-                    <p className="mb-4 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
-                    <Link to="/services" className="inline-flex items-center text-sm font-semibold text-primary transition-colors hover:underline">
-                      Learn more <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </Link>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Social Proof */}
-      <section className="px-4 py-20 md:py-28">
-        <div className="container mx-auto max-w-5xl">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="text-center">
-            <motion.h2 variants={fadeUp} className="mb-4 text-3xl font-extrabold text-foreground md:text-4xl">
-              Results That <span className="text-primary">Speak for Themselves</span>
-            </motion.h2>
-            <motion.p variants={fadeUp} className="mx-auto mb-14 max-w-xl text-muted-foreground">
-              Real businesses in Balasore and Odisha that we've helped grow.
-            </motion.p>
-          </motion.div>
-
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {caseStudies.map((cs) => (
-              <motion.div key={cs.id} variants={fadeUp}>
-                <Link to="/case-studies">
-                  <Card className="group h-full border-border transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl">
-                    <CardContent className="p-6">
-                      <span className="mb-3 block text-4xl">{cs.icon}</span>
-                      <h3 className="mb-1 text-sm font-bold uppercase tracking-wider text-primary">{cs.industry}</h3>
-                      <p className="mb-3 text-xs text-muted-foreground">{cs.businessType}</p>
-                      <p className="mb-4 text-sm font-medium leading-snug text-foreground">{cs.results[0]}</p>
-                      <span className="inline-flex items-center text-xs font-semibold text-primary transition-colors group-hover:underline">
-                        Full story <ChevronRight className="ml-1 h-3 w-3 transition-transform group-hover:translate-x-0.5" />
+                    <div className="p-6">
+                      <h3 className="mb-2 text-lg font-bold text-foreground">{item.title}</h3>
+                      <p className="mb-4 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
+                      <span className="inline-flex items-center text-sm font-semibold text-primary">
+                        Learn more <ArrowUpRight className="ml-1 h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                       </span>
-                    </CardContent>
-                  </Card>
+                    </div>
+                  </div>
                 </Link>
               </motion.div>
             ))}
@@ -210,31 +168,97 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Why Us */}
-      <section className="bg-secondary px-4 py-20 md:py-28">
-        <div className="container mx-auto max-w-5xl">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="text-center">
-            <motion.h2 variants={fadeUp} className="mb-4 text-3xl font-extrabold text-secondary-foreground md:text-4xl">
-              Why <span className="text-primary">Utkal Creator Hub?</span>
-            </motion.h2>
-            <motion.p variants={fadeUp} className="mx-auto mb-14 max-w-xl text-muted-foreground">
-              We are local. We understand Balasore.
+      {/* Comparison Table */}
+      <section className="border-y border-border bg-muted/30 px-4 py-24 md:py-32">
+        <div className="container mx-auto max-w-4xl">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="mb-16 text-center">
+            <motion.p variants={fadeUp} className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+              Why us
             </motion.p>
+            <motion.h2 variants={fadeUp} className="text-4xl font-black text-foreground md:text-5xl">
+              Traditional Marketing vs<br />
+              <span className="text-gradient">Utkal Creator Hub</span>
+            </motion.h2>
           </motion.div>
 
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              { icon: MapPin, title: "Local Market Knowledge", desc: "We know the streets, the people, the culture" },
-              { icon: Users, title: "Category Influencers", desc: "Food, travel, health — we match the right voice" },
-              { icon: Zap, title: "AI + Human Blend", desc: "Cutting-edge tech with authentic storytelling" },
-              { icon: Star, title: "Proven Across Industries", desc: "Restaurants to clinics — we've done it all" },
-            ].map((item) => (
-              <motion.div key={item.title} variants={fadeUp} className="text-center">
-                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 transition-colors hover:bg-primary/20">
-                  <item.icon className="h-7 w-7 text-primary" />
-                </div>
-                <h3 className="mb-2 font-bold text-secondary-foreground">{item.title}</h3>
-                <p className="text-sm text-muted-foreground">{item.desc}</p>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+            <div className="overflow-hidden rounded-2xl border border-border">
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b border-border bg-card">
+                    <th className="p-5 text-left text-sm font-medium text-muted-foreground">Feature</th>
+                    <th className="p-5 text-center text-sm font-medium text-muted-foreground">Traditional</th>
+                    <th className="p-5 text-center text-sm font-bold text-primary">Utkal Creator Hub</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    ["Reach local audience", false, true],
+                    ["Affordable pricing", false, true],
+                    ["Data-driven strategy", false, true],
+                    ["AI-powered content", false, true],
+                    ["Real influencer network", false, true],
+                    ["Measurable ROI", false, true],
+                    ["Quick turnaround", false, true],
+                  ].map(([feature, trad, uch], i) => (
+                    <tr key={i} className="border-b border-border last:border-0 transition-colors hover:bg-muted/50">
+                      <td className="p-5 text-sm font-medium text-foreground">{feature as string}</td>
+                      <td className="p-5 text-center">
+                        {trad ? (
+                          <Check className="mx-auto h-5 w-5 text-primary" />
+                        ) : (
+                          <XIcon className="mx-auto h-5 w-5 text-muted-foreground/40" />
+                        )}
+                      </td>
+                      <td className="p-5 text-center">
+                        {uch ? (
+                          <Check className="mx-auto h-5 w-5 text-primary" />
+                        ) : (
+                          <XIcon className="mx-auto h-5 w-5 text-muted-foreground/40" />
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Case Studies */}
+      <section className="px-4 py-24 md:py-32">
+        <div className="container mx-auto max-w-6xl">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="mb-16 flex items-end justify-between">
+            <div>
+              <motion.p variants={fadeUp} className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+                Results
+              </motion.p>
+              <motion.h2 variants={fadeUp} className="text-4xl font-black text-foreground md:text-5xl">
+                Proven Results
+              </motion.h2>
+            </div>
+            <motion.div variants={fadeUp} className="hidden sm:block">
+              <Button asChild variant="outline" className="rounded-full border-border">
+                <Link to="/case-studies">View All <ArrowRight className="ml-2 h-4 w-4" /></Link>
+              </Button>
+            </motion.div>
+          </motion.div>
+
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {caseStudies.map((cs) => (
+              <motion.div key={cs.id} variants={fadeUp}>
+                <Link to="/case-studies" className="group block">
+                  <div className="rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/30 hover:glow">
+                    <span className="mb-4 block text-3xl">{cs.icon}</span>
+                    <p className="mb-1 text-xs font-bold uppercase tracking-wider text-primary">{cs.industry}</p>
+                    <p className="mb-3 text-xs text-muted-foreground">{cs.businessType}</p>
+                    <p className="mb-5 text-sm font-medium leading-snug text-foreground">{cs.results[0]}</p>
+                    <span className="inline-flex items-center text-xs font-semibold text-primary group-hover:underline">
+                      Read more <ChevronRight className="ml-1 h-3 w-3" />
+                    </span>
+                  </div>
+                </Link>
               </motion.div>
             ))}
           </motion.div>
@@ -242,30 +266,32 @@ const Index = () => {
       </section>
 
       {/* How It Works */}
-      <section className="px-4 py-20 md:py-28">
-        <div className="container mx-auto max-w-3xl">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="text-center">
-            <motion.h2 variants={fadeUp} className="mb-4 text-3xl font-extrabold text-foreground md:text-4xl">
-              How It <span className="text-primary">Works</span>
-            </motion.h2>
-            <motion.p variants={fadeUp} className="mx-auto mb-14 max-w-xl text-muted-foreground">
-              Three simple steps to transform your business.
+      <section className="border-y border-border bg-muted/30 px-4 py-24 md:py-32">
+        <div className="container mx-auto max-w-4xl">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="mb-16 text-center">
+            <motion.p variants={fadeUp} className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+              Process
             </motion.p>
+            <motion.h2 variants={fadeUp} className="text-4xl font-black text-foreground md:text-5xl">
+              How it works
+            </motion.h2>
           </motion.div>
 
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="space-y-10">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="space-y-0">
             {[
-              { step: "1", title: "Book a Free Call", desc: "Tell us about your business and goals in a quick 30-minute call." },
-              { step: "2", title: "We Craft Your Strategy", desc: "We create a custom content and influencer plan tailored to your industry." },
-              { step: "3", title: "Watch Your Business Grow", desc: "Sit back as new customers find you through powerful, authentic content." },
-            ].map((item) => (
-              <motion.div key={item.step} variants={fadeUp} className="flex items-start gap-6">
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary text-xl font-bold text-primary-foreground shadow-lg shadow-primary/25">
-                  {item.step}
-                </div>
+              { step: "01", title: "Book a Free Call", desc: "Tell us about your business and goals in a quick 30-minute discovery call." },
+              { step: "02", title: "We Craft Your Strategy", desc: "We create a custom content and influencer plan tailored to your industry and budget." },
+              { step: "03", title: "Watch Your Business Grow", desc: "Sit back as new customers find you through powerful, authentic content." },
+            ].map((item, i) => (
+              <motion.div
+                key={item.step}
+                variants={fadeUp}
+                className="flex items-start gap-8 border-l-2 border-border py-10 pl-8 last:border-primary"
+              >
+                <span className="text-4xl font-black text-muted-foreground/30">{item.step}</span>
                 <div>
-                  <h3 className="mb-1 text-lg font-bold text-foreground">{item.title}</h3>
-                  <p className="text-muted-foreground">{item.desc}</p>
+                  <h3 className="mb-2 text-xl font-bold text-foreground">{item.title}</h3>
+                  <p className="max-w-md text-muted-foreground">{item.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -274,11 +300,14 @@ const Index = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="bg-accent/50 px-4 py-20 md:py-28">
-        <div className="container mx-auto max-w-4xl">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="text-center">
-            <motion.h2 variants={fadeUp} className="mb-14 text-3xl font-extrabold text-foreground md:text-4xl">
-              What Our <span className="text-primary">Clients Say</span>
+      <section className="px-4 py-24 md:py-32">
+        <div className="container mx-auto max-w-5xl">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="mb-16 text-center">
+            <motion.p variants={fadeUp} className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+              Testimonials
+            </motion.p>
+            <motion.h2 variants={fadeUp} className="text-4xl font-black text-foreground md:text-5xl">
+              What clients say
             </motion.h2>
           </motion.div>
 
@@ -287,22 +316,23 @@ const Index = () => {
               .filter((cs) => cs.quote)
               .map((cs) => (
                 <motion.div key={cs.id} variants={fadeUp}>
-                  <Card className="h-full border-none bg-background shadow-lg">
-                    <CardContent className="p-8">
-                      <div className="mb-4 flex gap-1">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="h-4 w-4 fill-primary text-primary" />
-                        ))}
+                  <div className="rounded-2xl border border-border bg-card p-8">
+                    <div className="mb-5 flex gap-1">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                      ))}
+                    </div>
+                    <p className="mb-6 text-base leading-relaxed text-foreground">"{cs.quote}"</p>
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-lg">
+                        {cs.icon}
                       </div>
-                      <p className="mb-5 text-sm italic leading-relaxed text-foreground">"{cs.quote}"</p>
-                      <div className="flex items-center gap-3">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-lg">
-                          {cs.icon}
-                        </div>
-                        <p className="text-sm font-semibold text-muted-foreground">{cs.businessType}</p>
+                      <div>
+                        <p className="text-sm font-semibold text-foreground">{cs.businessType}</p>
+                        <p className="text-xs text-muted-foreground">{cs.industry}</p>
                       </div>
-                    </CardContent>
-                  </Card>
+                    </div>
+                  </div>
                 </motion.div>
               ))}
           </motion.div>
@@ -310,26 +340,22 @@ const Index = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="relative overflow-hidden bg-primary px-4 py-24 md:py-32">
-        <div className="absolute -left-20 -top-20 h-60 w-60 rounded-full bg-primary-foreground/5 blur-3xl" />
-        <div className="absolute -bottom-20 -right-20 h-60 w-60 rounded-full bg-primary-foreground/5 blur-3xl" />
+      <section className="relative overflow-hidden border-t border-border px-4 py-28 md:py-36">
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
+        <div className="grid-pattern absolute inset-0 opacity-50" />
         <div className="container relative mx-auto max-w-3xl text-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
-            <motion.h2 variants={fadeUp} className="mb-4 text-3xl font-extrabold text-primary-foreground sm:text-4xl md:text-5xl">
-              Ready to Turn Scrollers Into Customers?
+            <motion.h2 variants={fadeUp} className="mb-6 text-4xl font-black text-foreground sm:text-5xl md:text-6xl">
+              Ready to turn scrollers into{" "}
+              <span className="text-gradient">customers?</span>
             </motion.h2>
-            <motion.p variants={fadeUp} className="mx-auto mb-10 max-w-xl text-lg text-primary-foreground/80">
+            <motion.p variants={fadeUp} className="mx-auto mb-10 max-w-xl text-lg text-muted-foreground">
               Book your free 30-minute strategy call today. No commitment, just actionable advice for your business.
             </motion.p>
             <motion.div variants={fadeUp}>
-              <Button
-                asChild
-                size="lg"
-                variant="secondary"
-                className="h-12 px-8 text-base font-bold shadow-xl"
-              >
+              <Button asChild size="lg" className="h-14 rounded-full px-10 text-base font-bold shadow-lg shadow-primary/20">
                 <a href={getWhatsAppLink()} target="_blank" rel="noopener noreferrer">
-                  Book Your Free 30-Minute Call <Phone className="ml-2 h-4 w-4" />
+                  Book Your Free Call <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
               </Button>
             </motion.div>
