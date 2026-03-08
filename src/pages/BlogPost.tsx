@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { blogPosts } from "@/data/blog-posts";
 import { getWhatsAppLink } from "@/lib/whatsapp";
-import { ArrowLeft, Calendar, ArrowRight } from "lucide-react";
+import { ArrowLeft, Calendar, ArrowRight, Clock, User, ChevronRight } from "lucide-react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -14,6 +14,8 @@ const fadeUp = {
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const post = blogPosts.find((p) => p.slug === slug);
+  const relatedPosts = blogPosts.filter((p) => p.slug !== slug && p.category === post?.category).slice(0, 2);
+  const fallbackRelated = relatedPosts.length > 0 ? relatedPosts : blogPosts.filter((p) => p.slug !== slug).slice(0, 2);
 
   useEffect(() => {
     if (post) document.title = `${post.title} | Utkal Creator Hub Blog`;
@@ -42,34 +44,54 @@ const BlogPost = () => {
 
   return (
     <>
-      <section className="relative overflow-hidden px-4 py-16 md:py-24">
-        <div className="grid-pattern absolute inset-0" />
-        <div className="absolute -left-40 -top-40 h-[300px] w-[300px] rounded-full bg-primary/5 blur-[120px]" />
-        <div className="container relative mx-auto max-w-3xl">
-          <Link to="/blog" className="mb-6 inline-flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
-            <ArrowLeft className="mr-1.5 h-4 w-4" /> Back to Blog
-          </Link>
-          <motion.div initial="hidden" animate="visible" variants={fadeUp}>
-            <span className="mb-4 inline-block rounded-full border border-border bg-muted px-3 py-1 text-xs font-semibold text-primary">
-              {post.category}
-            </span>
-            <h1 className="mb-5 text-3xl font-black leading-tight text-foreground md:text-4xl lg:text-5xl">
-              {post.title}
-            </h1>
-            <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
-              <Calendar className="h-4 w-4" />
-              {new Date(post.date).toLocaleDateString("en-IN", { year: "numeric", month: "long", day: "numeric" })}
-            </span>
-          </motion.div>
+      {/* Hero with cover image */}
+      <section className="relative overflow-hidden">
+        <div className="aspect-[21/9] w-full overflow-hidden">
+          <img
+            src={post.cover}
+            alt={post.title}
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
+        </div>
+
+        <div className="absolute bottom-0 left-0 right-0 px-4 pb-10 md:pb-16">
+          <div className="container mx-auto max-w-3xl">
+            <Link to="/blog" className="mb-6 inline-flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
+              <ArrowLeft className="mr-1.5 h-4 w-4" /> Back to Blog
+            </Link>
+            <motion.div initial="hidden" animate="visible" variants={fadeUp}>
+              <span className="mb-4 inline-block rounded-full border border-border bg-muted px-3 py-1 text-xs font-semibold text-primary">
+                {post.category}
+              </span>
+              <h1 className="mb-5 text-3xl font-black leading-tight text-foreground md:text-4xl lg:text-5xl">
+                {post.title}
+              </h1>
+              <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+                <span className="flex items-center gap-1.5">
+                  <User className="h-4 w-4" /> {post.author}
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Calendar className="h-4 w-4" />
+                  {new Date(post.date).toLocaleDateString("en-IN", { year: "numeric", month: "long", day: "numeric" })}
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Clock className="h-4 w-4" /> {post.readTime}
+                </span>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
+      {/* Article Content */}
       <article className="px-4 py-14 md:py-20">
         <div className="container mx-auto max-w-3xl">
           <motion.div initial="hidden" animate="visible" variants={fadeUp} className="text-base">
             {renderContent(post.content)}
           </motion.div>
 
+          {/* CTA */}
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
             className="mt-16 rounded-2xl border border-primary/20 bg-primary/5 p-10 text-center"
@@ -82,6 +104,43 @@ const BlogPost = () => {
               </a>
             </Button>
           </motion.div>
+
+          {/* Related Posts */}
+          {fallbackRelated.length > 0 && (
+            <motion.div
+              initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
+              className="mt-20"
+            >
+              <h3 className="mb-8 text-2xl font-black text-foreground">Related Articles</h3>
+              <div className="grid gap-6 sm:grid-cols-2">
+                {fallbackRelated.map((rp) => (
+                  <Link key={rp.slug} to={`/blog/${rp.slug}`} className="group block">
+                    <div className="rounded-2xl border border-border bg-card overflow-hidden transition-all duration-300 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5">
+                      <div className="aspect-[16/10] overflow-hidden">
+                        <img
+                          src={rp.cover}
+                          alt={rp.title}
+                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="p-5">
+                        <span className="mb-2 inline-block rounded-full border border-border bg-muted px-2.5 py-0.5 text-xs font-semibold text-primary">
+                          {rp.category}
+                        </span>
+                        <h4 className="mb-2 text-sm font-bold leading-snug text-foreground transition-colors group-hover:text-primary">
+                          {rp.title}
+                        </h4>
+                        <span className="inline-flex items-center text-xs font-semibold text-primary">
+                          Read more <ChevronRight className="ml-1 h-3 w-3" />
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </motion.div>
+          )}
         </div>
       </article>
     </>
