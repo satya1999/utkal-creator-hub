@@ -37,32 +37,32 @@ const features = [
   {
     icon: iconTarget3d,
     title: "Hyper-Local Targeting",
-    desc: "Reach customers within your city — not random followers across the country.",
+    desc: "Reach customers in Bhubaneswar, Cuttack, Puri, Balasore, or any Odisha district — not random followers across India.",
   },
   {
     icon: iconVideo3d,
     title: "AI-Powered Content",
-    desc: "Professional videos and reels created using cutting-edge AI at a fraction of the cost.",
+    desc: "Professional videos and reels for Odisha businesses — created using cutting-edge AI at a fraction of the cost.",
   },
   {
     icon: iconHandshake3d,
     title: "Vetted Creator Network",
-    desc: "100+ trusted local influencers handpicked for authenticity and engagement.",
+    desc: "100+ trusted Odisha influencers across 30 districts — handpicked for authenticity and local engagement.",
   },
   {
     icon: iconAnalytics3d,
     title: "Real-Time Analytics",
-    desc: "Track every view, click, and visit with transparent performance dashboards.",
+    desc: "Track every view, click, and visit with transparent performance dashboards tailored for Odisha markets.",
   },
   {
     icon: iconTrust3d,
     title: "Guaranteed Results",
-    desc: "We don't just promise growth — we back it with measurable KPIs and reports.",
+    desc: "We don't just promise growth — we back it with measurable KPIs for businesses across Odisha.",
   },
   {
     icon: iconGrowth3d,
     title: "Rapid Turnaround",
-    desc: "From strategy to live content in days, not weeks. Move fast, grow faster.",
+    desc: "From strategy to live content in days. Serving businesses from Balasore to Berhampur and everywhere in between.",
   },
 ];
 
