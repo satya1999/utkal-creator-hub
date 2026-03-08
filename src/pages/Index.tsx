@@ -134,6 +134,9 @@ const Index = () => {
       {/* Services — Kyra-style */}
       <ServiceCarousel />
 
+      {/* Showreel */}
+      <ShowreelCarousel />
+
       {/* Comparison Table */}
       <section className="border-y border-border bg-muted/30 px-4 py-24 md:py-32">
         <div className="container mx-auto max-w-4xl">
