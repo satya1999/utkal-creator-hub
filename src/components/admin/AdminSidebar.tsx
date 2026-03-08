@@ -1,6 +1,6 @@
 import {
   LayoutDashboard, Users, Palette, Building2, Megaphone,
-  MessageSquare, Shield, BarChart3, Settings, UserCog,
+  MessageSquare, Shield, BarChart3, Settings,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useLocation } from "react-router-dom";
@@ -19,7 +19,7 @@ const items = [
   { title: "Leads", url: "/admin/leads", icon: MessageSquare },
   { title: "Content", url: "/admin/content", icon: Shield },
   { title: "Analytics", url: "/admin/analytics", icon: BarChart3 },
-  { title: "Roles", url: "/admin/roles", icon: UserCog },
+  
   { title: "Settings", url: "/admin/settings", icon: Settings },
 ];
 

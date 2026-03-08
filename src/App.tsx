@@ -22,7 +22,7 @@ import AdminCampaigns from "./pages/admin/AdminCampaigns";
 import AdminLeads from "./pages/admin/AdminLeads";
 import AdminContent from "./pages/admin/AdminContent";
 import AdminAnalytics from "./pages/admin/AdminAnalytics";
-import AdminRoles from "./pages/admin/AdminRoles";
+
 import AdminSettings from "./pages/admin/AdminSettings";
 
 const queryClient = new QueryClient();
@@ -53,7 +53,7 @@ const App = () => (
           <Route path="/admin/leads" element={<AdminLayout><AdminLeads /></AdminLayout>} />
           <Route path="/admin/content" element={<AdminLayout><AdminContent /></AdminLayout>} />
           <Route path="/admin/analytics" element={<AdminLayout><AdminAnalytics /></AdminLayout>} />
-          <Route path="/admin/roles" element={<AdminLayout><AdminRoles /></AdminLayout>} />
+          
           <Route path="/admin/settings" element={<AdminLayout><AdminSettings /></AdminLayout>} />
 
           <Route path="*" element={<Layout><NotFound /></Layout>} />

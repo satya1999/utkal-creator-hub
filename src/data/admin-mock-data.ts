@@ -3,7 +3,7 @@ export type CreatorTier = "bronze" | "silver" | "gold" | "platinum";
 export type CampaignStatus = "draft" | "active" | "completed" | "paused";
 export type LeadStatus = "new" | "contacted" | "qualified" | "converted" | "lost";
 export type ContentStatus = "pending" | "approved" | "rejected" | "flagged";
-export type UserRole = "admin" | "manager" | "editor" | "viewer";
+export type UserRole = "admin" | "user";
 
 export interface AdminUser {
   id: string;
@@ -78,10 +78,10 @@ export interface ContentItem {
 
 export const mockUsers: AdminUser[] = [
   { id: "u1", name: "Rahul Sharma", email: "rahul@utkal.com", role: "admin", status: "active", joinedAt: "2024-01-15" },
-  { id: "u2", name: "Priya Patel", email: "priya@utkal.com", role: "manager", status: "active", joinedAt: "2024-03-20" },
-  { id: "u3", name: "Amit Das", email: "amit@utkal.com", role: "editor", status: "active", joinedAt: "2024-05-10" },
-  { id: "u4", name: "Sneha Rao", email: "sneha@utkal.com", role: "viewer", status: "suspended", joinedAt: "2024-06-01" },
-  { id: "u5", name: "Vikram Singh", email: "vikram@utkal.com", role: "editor", status: "inactive", joinedAt: "2024-02-28" },
+  { id: "u2", name: "Priya Patel", email: "priya@utkal.com", role: "admin", status: "active", joinedAt: "2024-03-20" },
+  { id: "u3", name: "Amit Das", email: "amit@utkal.com", role: "user", status: "active", joinedAt: "2024-05-10" },
+  { id: "u4", name: "Sneha Rao", email: "sneha@utkal.com", role: "user", status: "suspended", joinedAt: "2024-06-01" },
+  { id: "u5", name: "Vikram Singh", email: "vikram@utkal.com", role: "user", status: "inactive", joinedAt: "2024-02-28" },
 ];
 
 export const mockCreators: Creator[] = [

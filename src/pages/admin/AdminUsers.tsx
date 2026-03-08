@@ -17,9 +17,7 @@ const statusColor: Record<UserStatus, string> = {
 
 const roleColor: Record<UserRole, string> = {
   admin: "bg-primary/10 text-primary",
-  manager: "bg-blue-500/10 text-blue-600",
-  editor: "bg-yellow-500/10 text-yellow-600",
-  viewer: "bg-muted text-muted-foreground",
+  user: "bg-muted text-muted-foreground",
 };
 
 const AdminUsers = () => {
