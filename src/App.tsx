@@ -20,7 +20,7 @@ import AdminCreators from "./pages/admin/AdminCreators";
 import AdminBrands from "./pages/admin/AdminBrands";
 import AdminCampaigns from "./pages/admin/AdminCampaigns";
 import AdminLeads from "./pages/admin/AdminLeads";
-import AdminContent from "./pages/admin/AdminContent";
+
 import AdminAnalytics from "./pages/admin/AdminAnalytics";
 
 import AdminSettings from "./pages/admin/AdminSettings";
@@ -51,7 +51,7 @@ const App = () => (
           <Route path="/admin/brands" element={<AdminLayout><AdminBrands /></AdminLayout>} />
           <Route path="/admin/campaigns" element={<AdminLayout><AdminCampaigns /></AdminLayout>} />
           <Route path="/admin/leads" element={<AdminLayout><AdminLeads /></AdminLayout>} />
-          <Route path="/admin/content" element={<AdminLayout><AdminContent /></AdminLayout>} />
+          
           <Route path="/admin/analytics" element={<AdminLayout><AdminAnalytics /></AdminLayout>} />
           
           <Route path="/admin/settings" element={<AdminLayout><AdminSettings /></AdminLayout>} />
