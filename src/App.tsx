@@ -20,7 +20,7 @@ import AdminCreators from "./pages/admin/AdminCreators";
 import AdminBrands from "./pages/admin/AdminBrands";
 import AdminCampaigns from "./pages/admin/AdminCampaigns";
 import AdminLeads from "./pages/admin/AdminLeads";
-import AdminContent from "./pages/admin/AdminContent";
+
 import AdminAnalytics from "./pages/admin/AdminAnalytics";
 
 import AdminSettings from "./pages/admin/AdminSettings";
