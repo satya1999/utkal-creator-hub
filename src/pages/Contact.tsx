@@ -12,7 +12,7 @@ const stagger = { visible: { transition: { staggerChildren: 0.1 } } };
 
 const Contact = () => {
   useEffect(() => {
-    document.title = "Contact Us — Book a Free Call | Utkal Creator Hub Balasore";
+    document.title = "Contact Us — Book a Free Call | Utkal Creator Hub, Odisha";
   }, []);
 
   return (
