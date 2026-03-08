@@ -95,15 +95,16 @@ const Services = () => {
         <section key={service.id} className={`px-4 py-20 md:py-28 ${i % 2 === 1 ? "bg-accent/50" : ""}`}>
           <div className="container mx-auto max-w-5xl">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
-              <motion.div variants={fadeUp} className="mb-10">
-                <span className="mb-3 block text-5xl">{service.emoji}</span>
-                <h2 className="mb-2 text-3xl font-extrabold text-foreground md:text-4xl">{service.title}</h2>
-                <p className="text-lg font-medium text-primary">{service.subtitle}</p>
-              </motion.div>
-
-              <motion.p variants={fadeUp} className="mb-10 max-w-3xl text-muted-foreground leading-relaxed">
-                {service.description}
-              </motion.p>
+              <div className="mb-10 grid items-center gap-8 md:grid-cols-2">
+                <motion.div variants={fadeUp}>
+                  <h2 className="mb-2 text-3xl font-extrabold text-foreground md:text-4xl">{service.title}</h2>
+                  <p className="mb-4 text-lg font-medium text-primary">{service.subtitle}</p>
+                  <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+                </motion.div>
+                <motion.div variants={fadeUp} className={i % 2 === 1 ? "md:order-first" : ""}>
+                  <img src={service.img} alt={service.imgAlt} className="rounded-2xl shadow-lg" loading="lazy" />
+                </motion.div>
+              </div>
 
               <div className="grid gap-10 md:grid-cols-2">
                 <motion.div variants={fadeUp}>
