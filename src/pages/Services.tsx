@@ -44,7 +44,7 @@ const services = [
       "Social media optimized formats",
       "Quick turnaround — days, not weeks",
     ],
-    useCases: ["E-commerce & delivery", "Cloud kitchens", "New launches", "Festival promotions"],
+    useCases: ["Cloud kitchens in Bhubaneswar", "E-commerce in Odisha", "Rath Yatra & Raja promotions", "New business launches"],
   },
   {
     id: "real-shop",
