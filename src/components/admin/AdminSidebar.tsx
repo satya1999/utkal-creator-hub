@@ -33,7 +33,7 @@ export function AdminSidebar() {
   return (
     <Sidebar collapsible="icon">
       <SidebarContent>
-        <SidebarGroup defaultOpen>
+        <SidebarGroup>
           <SidebarGroupLabel>
             {!collapsed && <span className="text-primary font-bold">UCH Admin</span>}
           </SidebarGroupLabel>
