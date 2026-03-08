@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { getWhatsAppLink } from "@/lib/whatsapp";
 import { MapPin, Heart, Target, Award, Users, Briefcase, ArrowRight } from "lucide-react";
+import teamImg from "@/assets/team-about.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },

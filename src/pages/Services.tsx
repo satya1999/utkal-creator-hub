@@ -4,6 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { getWhatsAppLink } from "@/lib/whatsapp";
 import { Video, Bot, Camera, CheckCircle2, ArrowRight } from "lucide-react";
+import influencerImg from "@/assets/influencer-marketing.jpg";
+import aiVideoImg from "@/assets/ai-video.jpg";
+import realShopImg from "@/assets/real-shop-video.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
