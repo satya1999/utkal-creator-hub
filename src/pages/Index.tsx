@@ -10,6 +10,7 @@ import { caseStudies } from "@/data/case-studies";
 import ServiceCarousel from "@/components/ServiceCarousel";
 import ShowreelCarousel from "@/components/ShowreelCarousel";
 import HeroLeadForm from "@/components/HeroLeadForm";
+import CreatorCTA from "@/components/CreatorCTA";
 
 // 3D Icons
 import iconCall3d from "@/assets/icon-call-3d.png";
