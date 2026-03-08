@@ -59,7 +59,7 @@ const Footer = () => (
             >
               {PHONE_DISPLAY}
             </a>
-            <p className="text-muted-foreground">Balasore, Odisha, India</p>
+            <p className="text-muted-foreground">HQ: Balasore, Odisha | Serving all 30 districts</p>
             <a
               href={getWhatsAppLink()}
               target="_blank"
