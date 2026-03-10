@@ -18,6 +18,7 @@ const items = [
   { title: "Campaigns", url: "/admin/campaigns", icon: Megaphone },
   { title: "Leads", url: "/admin/leads", icon: MessageSquare },
   { title: "Creator Requests", url: "/admin/creator-requests", icon: UserPlus },
+  { title: "Blog", url: "/admin/blog", icon: FileText },
   { title: "Analytics", url: "/admin/analytics", icon: BarChart3 },
   { title: "Settings", url: "/admin/settings", icon: Settings },
 ];

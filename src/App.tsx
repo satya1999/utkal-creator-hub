@@ -56,6 +56,7 @@ const App = () => (
           <Route path="/admin/analytics" element={<AdminLayout><AdminAnalytics /></AdminLayout>} />
           <Route path="/admin/creator-requests" element={<AdminLayout><AdminCreatorRequests /></AdminLayout>} />
           <Route path="/admin/settings" element={<AdminLayout><AdminSettings /></AdminLayout>} />
+          <Route path="/admin/blog" element={<AdminLayout><AdminBlog /></AdminLayout>} />
 
           <Route path="*" element={<Layout><NotFound /></Layout>} />
         </Routes>
