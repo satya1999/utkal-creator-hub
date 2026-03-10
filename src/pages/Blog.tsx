@@ -28,8 +28,8 @@ const Blog = () => {
   }, []);
 
   const filtered = activeCategory === "All"
-    ? blogPosts
-    : blogPosts.filter((p) => p.category === activeCategory);
+    ? posts
+    : posts.filter((p) => p.category === activeCategory);
 
   const [featured, ...rest] = filtered;
 
