@@ -63,7 +63,7 @@ const Blog = () => {
             variants={fadeUp}
             className="flex flex-wrap gap-2 justify-center"
           >
-            {blogCategories.map((cat) => (
+            {categories.map((cat) => (
               <Button
                 key={cat}
                 variant={activeCategory === cat ? "default" : "outline"}

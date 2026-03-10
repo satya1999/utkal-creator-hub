@@ -12,11 +12,12 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
-const BlogPost = () => {
+const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
-  const post = blogPosts.find((p) => p.slug === slug);
-  const relatedPosts = blogPosts.filter((p) => p.slug !== slug && p.category === post?.category).slice(0, 2);
-  const fallbackRelated = relatedPosts.length > 0 ? relatedPosts : blogPosts.filter((p) => p.slug !== slug).slice(0, 2);
+  const allPosts = getAllBlogPosts();
+  const post = allPosts.find((p) => p.slug === slug);
+  const relatedPosts = allPosts.filter((p) => p.slug !== slug && p.category === post?.category).slice(0, 2);
+  const fallbackRelated = relatedPosts.length > 0 ? relatedPosts : allPosts.filter((p) => p.slug !== slug).slice(0, 2);
 
   useEffect(() => {
     if (post) document.title = `${post.title} | Utkal Creator Hub Blog`;
