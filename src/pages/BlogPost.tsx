@@ -1,8 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { blogPosts } from "@/data/blog-posts";
+import type { BlogPost as BlogPostType } from "@/data/blog-posts";
+import { getAllBlogPosts } from "@/lib/blog-storage";
 import { getWhatsAppLink } from "@/lib/whatsapp";
 import { ArrowLeft, Calendar, ArrowRight, Clock, User, ChevronRight } from "lucide-react";
 
@@ -11,11 +12,12 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
-const BlogPost = () => {
+const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
-  const post = blogPosts.find((p) => p.slug === slug);
-  const relatedPosts = blogPosts.filter((p) => p.slug !== slug && p.category === post?.category).slice(0, 2);
-  const fallbackRelated = relatedPosts.length > 0 ? relatedPosts : blogPosts.filter((p) => p.slug !== slug).slice(0, 2);
+  const allPosts = getAllBlogPosts();
+  const post = allPosts.find((p) => p.slug === slug);
+  const relatedPosts = allPosts.filter((p) => p.slug !== slug && p.category === post?.category).slice(0, 2);
+  const fallbackRelated = relatedPosts.length > 0 ? relatedPosts : allPosts.filter((p) => p.slug !== slug).slice(0, 2);
 
   useEffect(() => {
     if (post) document.title = `${post.title} | Utkal Creator Hub Blog`;
@@ -147,4 +149,4 @@ const BlogPost = () => {
   );
 };
 
-export default BlogPost;
+export default BlogPostPage;
