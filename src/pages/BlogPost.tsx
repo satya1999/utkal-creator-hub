@@ -1,8 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { blogPosts } from "@/data/blog-posts";
+import type { BlogPost as BlogPostType } from "@/data/blog-posts";
+import { getAllBlogPosts } from "@/lib/blog-storage";
 import { getWhatsAppLink } from "@/lib/whatsapp";
 import { ArrowLeft, Calendar, ArrowRight, Clock, User, ChevronRight } from "lucide-react";
 

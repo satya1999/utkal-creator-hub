@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { blogPosts, blogCategories } from "@/data/blog-posts";
+import type { BlogPost } from "@/data/blog-posts";
+import { getAllBlogPosts } from "@/lib/blog-storage";
 import { ArrowUpRight, Calendar, Clock, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -12,7 +13,15 @@ const fadeUp = {
 const stagger = { visible: { transition: { staggerChildren: 0.1 } } };
 
 const Blog = () => {
+  const [posts, setPosts] = useState<BlogPost[]>([]);
   const [activeCategory, setActiveCategory] = useState("All");
+
+  useEffect(() => {
+    setPosts(getAllBlogPosts());
+  }, []);
+
+  const categories = ["All", ...Array.from(new Set(posts.map((p) => p.category)))];
+
 
   useEffect(() => {
     document.title = "Blog — Digital Marketing Tips for Odisha Businesses | Utkal Creator Hub";
