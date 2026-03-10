@@ -24,6 +24,7 @@ import AdminLeads from "./pages/admin/AdminLeads";
 import AdminAnalytics from "./pages/admin/AdminAnalytics";
 import AdminCreatorRequests from "./pages/admin/AdminCreatorRequests";
 import AdminSettings from "./pages/admin/AdminSettings";
+import AdminBlog from "./pages/admin/AdminBlog";
 
 const queryClient = new QueryClient();
 
