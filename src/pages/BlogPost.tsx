@@ -149,4 +149,4 @@ const BlogPostPage = () => {
   );
 };
 
-export default BlogPost;
+export default BlogPostPage;
