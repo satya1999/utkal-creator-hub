@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { getAllShowreels } from "@/lib/showreel-storage";
 
 const ShowreelCarousel = () => {
+  const [reels] = useState(getAllShowreels);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const scroll = (dir: "left" | "right") => {
