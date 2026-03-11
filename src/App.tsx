@@ -26,6 +26,7 @@ import AdminCreatorRequests from "./pages/admin/AdminCreatorRequests";
 import AdminSettings from "./pages/admin/AdminSettings";
 import AdminBlog from "./pages/admin/AdminBlog";
 import AdminShowreel from "./pages/admin/AdminShowreel";
+import AdminMedia from "./pages/admin/AdminMedia";
 
 const queryClient = new QueryClient();
 
@@ -59,6 +60,7 @@ const App = () => (
           <Route path="/admin/settings" element={<AdminLayout><AdminSettings /></AdminLayout>} />
           <Route path="/admin/blog" element={<AdminLayout><AdminBlog /></AdminLayout>} />
           <Route path="/admin/showreel" element={<AdminLayout><AdminShowreel /></AdminLayout>} />
+          <Route path="/admin/media" element={<AdminLayout><AdminMedia /></AdminLayout>} />
 
           <Route path="*" element={<Layout><NotFound /></Layout>} />
         </Routes>
