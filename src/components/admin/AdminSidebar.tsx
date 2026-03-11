@@ -1,6 +1,6 @@
 import {
   LayoutDashboard, Users, Palette, Building2, Megaphone,
-  MessageSquare, BarChart3, Settings, UserPlus, FileText,
+  MessageSquare, BarChart3, Settings, UserPlus, FileText, Film,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useLocation } from "react-router-dom";
