@@ -25,6 +25,7 @@ import AdminAnalytics from "./pages/admin/AdminAnalytics";
 import AdminCreatorRequests from "./pages/admin/AdminCreatorRequests";
 import AdminSettings from "./pages/admin/AdminSettings";
 import AdminBlog from "./pages/admin/AdminBlog";
+import AdminShowreel from "./pages/admin/AdminShowreel";
 
 const queryClient = new QueryClient();
 
@@ -57,6 +58,7 @@ const App = () => (
           <Route path="/admin/creator-requests" element={<AdminLayout><AdminCreatorRequests /></AdminLayout>} />
           <Route path="/admin/settings" element={<AdminLayout><AdminSettings /></AdminLayout>} />
           <Route path="/admin/blog" element={<AdminLayout><AdminBlog /></AdminLayout>} />
+          <Route path="/admin/showreel" element={<AdminLayout><AdminShowreel /></AdminLayout>} />
 
           <Route path="*" element={<Layout><NotFound /></Layout>} />
         </Routes>

@@ -1,41 +1,10 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-
-const reels = [
-  {
-    id: 1,
-    thumbnail: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=400&h=700&fit=crop",
-    brand: "Restaurant Promo",
-    tags: ["food", "local business"],
-  },
-  {
-    id: 2,
-    thumbnail: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&h=700&fit=crop",
-    brand: "Fashion Store",
-    tags: ["lifestyle", "retail"],
-  },
-  {
-    id: 3,
-    thumbnail: "https://images.unsplash.com/photo-1556740758-90de374c12ad?w=400&h=700&fit=crop",
-    brand: "Café Launch",
-    tags: ["café", "influencer"],
-  },
-  {
-    id: 4,
-    thumbnail: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=700&fit=crop",
-    brand: "Fitness Studio",
-    tags: ["health", "AI video"],
-  },
-  {
-    id: 5,
-    thumbnail: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=700&fit=crop",
-    brand: "Product Shoot",
-    tags: ["e-commerce", "real footage"],
-  },
-];
+import { getAllShowreels } from "@/lib/showreel-storage";
 
 const ShowreelCarousel = () => {
+  const [reels] = useState(getAllShowreels);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const scroll = (dir: "left" | "right") => {
