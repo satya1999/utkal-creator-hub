@@ -20,6 +20,7 @@ const items = [
   { title: "Creator Requests", url: "/admin/creator-requests", icon: UserPlus },
   { title: "Blog", url: "/admin/blog", icon: FileText },
   { title: "Showreel", url: "/admin/showreel", icon: Film },
+  { title: "Media", url: "/admin/media", icon: Upload },
   { title: "Analytics", url: "/admin/analytics", icon: BarChart3 },
   { title: "Settings", url: "/admin/settings", icon: Settings },
 ];
