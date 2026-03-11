@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { getAllShowreels } from "@/lib/showreel-storage";
+import { getAllShowreels, type ShowreelItem } from "@/lib/showreel-storage";
 
 const ShowreelCarousel = () => {
   const [reels] = useState(getAllShowreels);
